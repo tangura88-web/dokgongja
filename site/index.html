@@ -1,0 +1,775 @@
+<title>독공자</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="독공자는 관리를 파는 학원이 아니라, 관리가 필요 없게 만드는 독학재수학원입니다. 자율 단계제로 통제를 단계적으로 걷어내고, 단계가 오를수록 수강료가 내려갑니다.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: 네이비 히어로 → 한지 본문. 단계(1·2·3)를 수직 레일로 끌고 가는 단일 컬럼 랜딩. */
+:root{
+  --navy:#0F1626; --navy-2:#161F33; --paper:#F2EEE6; --surface:#FBF9F5;
+  --jade:#0E5A4E; --jade-lt:#3FA894; --jade-soft:#E3EDEA;
+  --grey:#6B665E; --line:#DCD6CA; --onNavy:#F2EEE6; --onNavy-dim:#9AA3B2;
+  --bg:var(--paper); --fg:var(--navy);
+  --mk-ground:#0F1626; --mk-line:#F2EEE6;
+  color-scheme:light;
+  --f-display:"Noto Serif KR",ui-serif,Georgia,serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  --gut:max(16px,env(safe-area-inset-left,0px));
+  --gutr:max(16px,env(safe-area-inset-right,0px));
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#12151C; --surface:#181D26; --line:#2A313D; --grey:#9A958B;
+  --jade:#4FBCA6; --jade-soft:#12302B; --navy-2:#0B1120;
+  --bg:#12151C; --fg:#E9E5DC; --mk-ground:#F2EEE6; --mk-line:#0F1626;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --paper:#12151C; --surface:#181D26; --line:#2A313D; --grey:#9A958B;
+  --jade:#4FBCA6; --jade-soft:#12302B; --navy-2:#0B1120;
+  --bg:#12151C; --fg:#E9E5DC; --mk-ground:#F2EEE6; --mk-line:#0F1626;
+  color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;
+  line-height:1.75;-webkit-font-smoothing:antialiased}
+.in{max-width:1080px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+section{padding-block:clamp(56px,8vw,96px)}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(26px,4.4vw,40px);line-height:1.32;font-weight:700}
+h3{font-size:clamp(18px,2.4vw,22px);line-height:1.4;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--jade);font-weight:600;margin-bottom:14px}
+.lead{color:var(--grey);font-size:clamp(15px,1.8vw,17px);max-width:40em;margin-top:16px}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* ── nav ── */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);
+  border-bottom:1px solid rgba(242,238,230,.12)}
+.nav .in{display:flex;align-items:center;gap:20px;padding-block:13px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto}
+.brand .wm{font-family:var(--f-display);font-weight:700;font-size:21px;color:var(--onNavy);line-height:1}
+.navlinks{display:none;gap:26px}
+@media(min-width:860px){.navlinks{display:flex}}
+.navlinks a{color:var(--onNavy-dim);text-decoration:none;font-size:14px;font-weight:500}
+.navlinks a:hover{color:var(--onNavy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;
+  font-family:var(--f-body);font-weight:600;font-size:15px;padding:13px 22px;text-decoration:none;
+  background:var(--jade-lt);color:#07211C;transition:filter .15s}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{padding:9px 16px;font-size:13.5px}
+.btn.ghost{background:transparent;color:var(--onNavy);border:1px solid rgba(242,238,230,.35)}
+.btn.dark{background:var(--navy);color:var(--onNavy)}
+.btn.block{width:100%}
+
+/* ── hero ── */
+.hero{background:var(--navy);color:var(--onNavy);padding-block:clamp(60px,10vw,110px) clamp(40px,6vw,64px)}
+.hero h1{font-size:clamp(38px,8vw,78px);line-height:1.08;font-weight:900;letter-spacing:-.035em}
+.hero .sub{color:var(--onNavy-dim);font-size:clamp(16px,2.1vw,19px);max-width:30em;margin-top:24px;line-height:1.7}
+.hero .sub b{color:var(--onNavy);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.tagstrip{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tagstrip span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;color:var(--onNavy-dim);
+  border:1px solid rgba(242,238,230,.2);padding:5px 11px}
+.heroGrid{display:grid;gap:44px;grid-template-columns:1fr}
+@media(min-width:900px){.heroGrid{grid-template-columns:1.25fr .85fr;align-items:center;gap:56px}}
+.heroCard{background:var(--navy-2);border:1px solid rgba(242,238,230,.14);padding:26px;min-width:0}
+.heroCard .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--jade-lt);font-weight:600}
+.ledger{margin-top:18px;display:flex;flex-direction:column;gap:0}
+.ledger .row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:13px 0;border-bottom:1px solid rgba(242,238,230,.12)}
+.ledger .row:last-child{border-bottom:0}
+.ledger .lv{font-size:14.5px;color:var(--onNavy)}
+.ledger .lv small{display:block;color:var(--onNavy-dim);font-size:12px;margin-top:2px}
+.ledger .pr{font-family:var(--f-mono);font-size:17px;font-variant-numeric:tabular-nums;color:var(--onNavy)}
+.ledger .row:last-child .pr{color:var(--jade-lt);font-weight:600}
+.heroCard .foot{margin-top:16px;font-size:12.5px;color:var(--onNavy-dim);line-height:1.6}
+
+/* ── 문제 ── */
+.probs{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px;
+  grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+.prob{background:var(--surface);padding:26px;min-width:0}
+.prob .q{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.45;margin-bottom:12px}
+.prob p{font-size:14px;color:var(--grey);line-height:1.72}
+
+/* ── 단계 레일 ── */
+.rail{display:grid;gap:16px;margin-top:40px;grid-template-columns:1fr}
+@media(min-width:800px){.rail{grid-template-columns:repeat(3,1fr)}}
+.step{border:1px solid var(--line);background:var(--surface);padding:26px;position:relative;min-width:0;
+  display:flex;flex-direction:column}
+.step.on{border-color:var(--jade);background:var(--jade-soft)}
+.step .lvl{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;color:var(--jade);font-weight:600}
+.step h3{margin:10px 0 0}
+.step .price{font-family:var(--f-mono);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;margin:18px 0 4px}
+.step .price small{font-size:13px;font-weight:400;color:var(--grey);letter-spacing:0}
+.step ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.step li{font-size:13.5px;color:var(--grey);padding-left:17px;position:relative;line-height:1.6}
+.step li::before{content:"";position:absolute;left:0;top:.66em;width:8px;height:1.5px;background:var(--jade)}
+.step .gate{margin-top:auto;padding-top:18px;font-family:var(--f-mono);font-size:11.5px;color:var(--grey);
+  border-top:1px solid var(--line)}
+.step ul{flex:1 1 auto}
+
+/* ── 차별점 ── */
+.feat{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px;
+  grid-template-columns:repeat(auto-fit,minmax(282px,1fr))}
+.f{background:var(--surface);padding:28px;min-width:0}
+.f .i{font-family:var(--f-mono);font-size:12px;color:var(--jade);font-weight:600;letter-spacing:.1em}
+.f h3{font-size:19px;margin:12px 0 10px}
+.f p{font-size:14px;color:var(--grey);line-height:1.74}
+.f p+p{margin-top:10px}
+
+/* ── 리포트 목업 ── */
+.reportWrap{display:grid;gap:34px;grid-template-columns:1fr;margin-top:36px;align-items:start}
+@media(min-width:880px){.reportWrap{grid-template-columns:1fr 1fr;gap:48px}}
+.report{background:var(--navy);color:var(--onNavy);padding:26px;min-width:0}
+.report .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding-bottom:14px;border-bottom:1px solid rgba(242,238,230,.14)}
+.report .hd b{font-family:var(--f-display);font-size:17px;font-weight:700}
+.report .hd span{font-family:var(--f-mono);font-size:11.5px;color:var(--onNavy-dim)}
+.metric{padding:15px 0;border-bottom:1px solid rgba(242,238,230,.1)}
+.metric:last-of-type{border-bottom:0}
+.metric .t{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:13.5px}
+.metric .t b{font-family:var(--f-mono);font-size:16px;font-variant-numeric:tabular-nums;font-weight:600}
+.metric .t span{color:var(--onNavy-dim)}
+.bar{height:5px;background:rgba(242,238,230,.14);margin-top:9px}
+.bar i{display:block;height:100%;background:var(--jade-lt)}
+.delta{font-family:var(--f-mono);font-size:11px;color:var(--jade-lt);margin-left:8px}
+.report .gate{margin-top:18px;padding-top:15px;border-top:1px solid rgba(242,238,230,.14);
+  font-size:13px;color:var(--jade-lt);font-family:var(--f-mono)}
+.explain h3{margin-bottom:14px}
+.explain ol{list-style:none;counter-reset:x;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:16px}
+.explain li{counter-increment:x;padding-left:38px;position:relative;font-size:14.5px;line-height:1.7}
+.explain li::before{content:counter(x,decimal-leading-zero);position:absolute;left:0;top:.1em;
+  font-family:var(--f-mono);font-size:11.5px;color:var(--jade);font-weight:600;letter-spacing:.06em}
+.explain li b{display:block;font-weight:600;color:var(--fg);margin-bottom:2px}
+.explain li span{color:var(--grey)}
+
+/* ── 약속(환급) ── */
+.pledge{background:var(--navy);color:var(--onNavy)}
+.pledgeGrid{display:grid;gap:34px;grid-template-columns:1fr}
+@media(min-width:860px){.pledgeGrid{grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}}
+.pledge h2{color:var(--onNavy)}
+.pledge .lead{color:var(--onNavy-dim)}
+.clause{border:1px solid rgba(242,238,230,.22);padding:26px;font-family:var(--f-mono);font-size:13.5px;
+  line-height:1.95;color:var(--onNavy-dim)}
+.clause b{color:var(--jade-lt);font-weight:600}
+.clause .no{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--onNavy-dim);
+  display:block;margin-bottom:12px}
+
+/* ── 투명성 ── */
+.open{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:34px}
+.open div{border:1px solid var(--line);background:var(--surface);padding:20px;min-width:0}
+.open b{display:block;font-family:var(--f-mono);font-size:12px;color:var(--jade);letter-spacing:.08em;
+  margin-bottom:9px;font-weight:600}
+.open p{font-size:13.5px;color:var(--grey);line-height:1.7}
+
+/* ── FAQ ── */
+.faq{margin-top:34px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;position:relative;
+  font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.5}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:19px;font-family:var(--f-mono);
+  font-size:20px;color:var(--jade);font-weight:400}
+details[open] summary::after{content:"−"}
+details .a{padding:0 0 22px;color:var(--grey);font-size:14.5px;line-height:1.8;max-width:52em}
+
+/* ── 상담 ── */
+.apply{background:var(--surface);border-top:1px solid var(--line)}
+.applyGrid{display:grid;gap:40px;grid-template-columns:1fr}
+@media(min-width:880px){.applyGrid{grid-template-columns:.9fr 1.1fr;gap:60px}}
+form{display:grid;gap:14px}
+.fieldRow{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:560px){.fieldRow{grid-template-columns:1fr 1fr}}
+label{display:block;font-size:12.5px;font-weight:600;margin-bottom:7px;letter-spacing:.01em}
+input,select,textarea{width:100%;font-family:var(--f-body);font-size:15px;padding:12px 14px;
+  border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:0}
+textarea{resize:vertical;min-height:92px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--jade);outline-offset:-2px;border-color:transparent}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--grey);line-height:1.6}
+.consent input{width:auto;margin-top:3px}
+.ok{border:1px solid var(--jade);background:var(--jade-soft);padding:22px;font-size:14.5px;line-height:1.75}
+.ok b{display:block;font-family:var(--f-display);font-size:18px;margin-bottom:8px}
+.contact{display:flex;flex-direction:column;gap:18px;margin-top:26px}
+.contact div{border-top:1px solid var(--line);padding-top:16px}
+.contact .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--grey);margin-bottom:6px}
+.contact .v{font-family:var(--f-mono);font-size:19px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.copybtn{background:none;border:1px solid var(--line);color:var(--grey);font-family:var(--f-mono);
+  font-size:11px;padding:4px 9px;cursor:pointer;margin-left:10px;vertical-align:2px}
+.copybtn:hover{border-color:var(--jade);color:var(--jade)}
+
+/* ── 관리자 ── */
+.adminbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:26px}
+.adminbar .cnt{font-family:var(--f-mono);font-size:13px;color:var(--grey);margin-right:auto}
+.adminbar .cnt b{color:var(--fg);font-size:17px;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface);margin-top:14px}
+table{border-collapse:collapse;width:100%;min-width:780px;font-size:13.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--grey);font-weight:600;white-space:nowrap;background:var(--bg)}
+tbody tr:last-child td{border-bottom:0}
+td.w{white-space:nowrap}
+td.msg{color:var(--grey);line-height:1.6;min-width:220px}
+.pill{font-family:var(--f-mono);font-size:11px;padding:3px 9px;border:1px solid var(--line);
+  background:none;color:var(--grey);cursor:pointer}
+.pill.done{border-color:var(--jade);color:var(--jade);background:var(--jade-soft)}
+.empty{padding:34px 16px;text-align:center;color:var(--grey);font-size:14px}
+
+/* ── footer ── */
+footer{background:var(--navy);color:var(--onNavy-dim);padding-block:0 56px;font-size:13px;line-height:1.8}
+.sig{text-align:center;padding-block:clamp(56px,9vw,88px) clamp(48px,7vw,72px);
+  border-bottom:1px solid rgba(242,238,230,.12)}
+.sig svg{display:block;margin:0 auto;--mk-ground:#0F1626;--mk-line:#F2EEE6}
+.signame{font-family:var(--f-display);font-weight:700;color:var(--onNavy);line-height:1.1;
+  font-size:clamp(32px,7vw,52px);letter-spacing:.2em;text-indent:.2em;margin-top:clamp(22px,3vw,32px)}
+.sigtag{font-family:var(--f-body);font-weight:500;color:var(--onNavy-dim);line-height:1.4;
+  font-size:clamp(11px,1.7vw,13.5px);letter-spacing:.4em;text-indent:.4em;margin-top:clamp(14px,2vw,20px)}
+footer .top{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start;
+  padding-top:40px}
+footer .legal{margin-top:28px;padding-top:22px;border-top:1px solid rgba(242,238,230,.12);font-size:12px}
+.note{font-size:12.5px;color:var(--grey);line-height:1.7;margin-top:18px;max-width:46em}
+:focus-visible{outline:2px solid var(--jade-lt);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="mk" viewBox="0 0 2048 2048">
+
+<path fill="var(--mk-line)" d="M 991.488 208.347 C 1441.64 190.297 1821.3 540.345 1839.79 990.475 C 1858.27 1440.61 1508.59 1820.61 1058.48 1839.53 C 607.751 1858.48 227.113 1508.22 208.601 1057.47 C 190.088 606.721 540.722 226.423 991.488 208.347 z"/>
+<path fill="var(--mk-line)" d="M 987.486 220.334 C 1431.44 200.05 1807.74 543.565 1827.9 987.521 C 1848.07 1431.48 1504.45 1807.69 1060.49 1827.73 C 616.697 1847.76 240.665 1504.3 220.51 1060.52 C 200.356 616.738 543.709 240.611 987.486 220.334 z"/>
+<path fill="var(--mk-ground)" d="M 992.928 254.448 C 1417.81 237.279 1776.19 567.74 1793.46 992.618 C 1810.73 1417.49 1480.35 1775.95 1055.48 1793.32 C 630.463 1810.7 271.859 1480.19 254.583 1055.17 C 237.307 630.149 567.904 271.623 992.928 254.448 z"/>
+<path fill="var(--mk-line)" d="M 1053.57 752.419 C 1053.91 752.375 1054.25 752.33 1054.59 752.286 C 1216.14 742.918 1353.78 869.759 1366.1 1029.31 C 1367.13 1042.68 1363.95 1053.26 1349.49 1053.81 C 1326.13 1054.71 1302.67 1054.33 1279.29 1054.3 L 1147 1054.26 C 1138.18 1045.03 1129.25 1037.53 1117.29 1032.73 C 1100.25 1025.81 1081.14 1026 1064.25 1033.28 C 1049.07 1039.98 1035.99 1054.79 1030.01 1070.44 C 1024.78 1084.11 1022.95 1113.49 1028.4 1127.19 C 1030.62 1132.76 1038.28 1139.45 1044.15 1140.82 C 1062.1 1144.99 1089.7 1144.89 1106.43 1136.12 C 1121.72 1128.43 1134.61 1113.17 1137.38 1096.02 C 1139.31 1084.1 1137.01 1069.5 1150.82 1063.8 C 1156.5 1061.52 1162.89 1061.76 1168.38 1064.48 C 1189.7 1074.81 1176.59 1113.97 1168.25 1130.03 C 1154.53 1156.5 1133.5 1171.17 1105.34 1179.95 L 1099.95 1191.26 C 1094 1203.01 1084.62 1217.81 1076.95 1228.62 C 1019.6 1309.57 932.411 1364.39 834.602 1380.97 C 819.577 1383.49 787.284 1391.16 776.109 1381.72 C 771.181 1377.56 769.886 1375.06 768.862 1368.83 C 766.921 1357.02 782.197 1346.33 790.523 1336.43 C 832.49 1286.52 848.242 1229.34 824.501 1167.15 C 819.325 1153.59 812.684 1142.35 806.634 1129.41 C 795.274 1105.13 788.851 1078.12 786.539 1051.45 C 779.939 979.669 802.825 908.288 849.934 853.723 C 903.512 790.628 971.521 758.86 1053.57 752.419 z"/>
+<path fill="var(--mk-ground)" d="M 1052.51 792.399 C 1057.98 791.596 1075.2 791.66 1080.5 791.863 C 1129.05 793.796 1176.01 809.684 1215.76 837.623 C 1278.55 881.695 1309.81 941.597 1322.85 1015.31 C 1271.14 1015.35 1215.1 1016.56 1163.87 1015.24 C 1142.45 998.015 1121.73 987.418 1093.59 986.748 C 1065.63 985.903 1038.49 996.187 1018.11 1015.34 C 994.86 1037.56 985.136 1063.62 984.97 1095.22 C 984.837 1120.68 983.914 1140.97 1003.28 1160.7 C 1019.86 1177.6 1039.49 1182 1062.16 1182.26 C 1055.67 1193 1050.73 1201.21 1043.48 1211.54 C 993.397 1281.41 923.335 1320.4 841.099 1339.7 C 880.362 1276.95 888.508 1214.24 860.185 1144.51 C 855.753 1133.21 849.081 1122.76 844.207 1111.7 C 810.39 1035.02 827.457 944.512 880.709 881.258 C 925.449 828.115 984.306 799.019 1052.51 792.399 z"/>
+<path fill="var(--mk-line)" d="M 1048.51 562.439 C 1099.36 559.484 1157 571.139 1205.53 585.906 C 1213.8 588.421 1223.3 592.244 1227.28 600.413 C 1229.6 605.17 1229.48 611.755 1227.38 616.641 C 1215.49 632.803 1199.53 649.494 1185.74 664.752 C 1168.52 682.819 1152.82 704.598 1133.86 720.708 C 1129.33 724.562 1100.21 718.92 1093.14 718.143 C 1070.91 715.72 1048.48 715.455 1026.2 717.354 C 992.286 719.99 959.11 728.605 928.202 742.801 C 855.782 775.92 805.761 831.304 778.154 905.5 C 772.531 922.725 771.446 946.434 748.02 947.277 C 735.524 947.342 722.828 947.432 710.32 947.125 C 643.326 945.478 615.943 962.351 638.194 882.356 C 656.26 815.726 690.152 754.445 736.987 703.726 C 820.546 613.003 926.071 567.527 1048.51 562.439 z"/>
+<path fill="var(--mk-ground)" d="M 1053.88 602.443 C 1094.53 600.936 1135.17 605.628 1174.41 616.357 L 1118.93 678.967 C 1060.07 669.863 1005.67 672.255 948.58 690.503 C 864.215 717.554 794.167 777.213 754.033 856.197 C 746.835 870.363 739.472 889.901 735.081 904.989 C 715.378 904.898 695.674 904.91 675.971 905.027 C 690.787 840.635 721.918 781.137 766.374 732.254 C 841.974 649.562 942.863 607.274 1053.88 602.443 z"/>
+<path fill="var(--mk-line)" d="M 1341.42 1065.19 C 1342.76 1065.03 1344.11 1064.91 1345.46 1064.84 C 1357.9 1064.16 1365.01 1069.22 1368.44 1081.1 C 1381.39 1125.93 1395.99 1170.89 1406.53 1216.27 C 1407.16 1221.77 1402.71 1231.63 1398.62 1234.67 C 1384.47 1245.21 1352.84 1241.29 1335.1 1241.1 L 1335.23 1380.2 C 1335.25 1402.53 1335.78 1425 1334.76 1447.3 C 1334.02 1463.57 1320.39 1466.08 1306.98 1466.17 C 1197.23 1466.89 1106.1 1428.47 1029.79 1349.76 C 1022.27 1341.39 1009.8 1329.57 1010.65 1317.97 C 1011.08 1312.71 1013.66 1307.86 1017.78 1304.56 C 1029.76 1294.8 1041.4 1302.84 1049.67 1312.62 C 1114.43 1389.13 1197.5 1421.56 1295.31 1429.08 L 1295.35 1289.67 C 1295.37 1268.31 1294.82 1245.94 1295.51 1224.67 C 1296.31 1199.84 1344.27 1206.78 1362.14 1206.8 C 1354.94 1181.95 1347.57 1157.15 1340.04 1132.4 C 1335.94 1118.85 1331.59 1105.29 1328.03 1091.6 C 1324.33 1077.35 1329.65 1071.67 1341.42 1065.19 z"/>
+</symbol></svg>
+
+<header class="nav">
+  <div class="in">
+    <a class="brand" href="#top">
+      <svg width="34" height="34" viewBox="0 0 2048 2048" aria-label="독공자" style="--mk-ground:#0F1626;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+      <span class="wm">독공자</span>
+    </a>
+    <nav class="navlinks">
+      <a href="#steps">3단 체계</a>
+      <a href="#how">차별점</a>
+      <a href="#log">독공일지</a>
+      <a href="#price">요금</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </nav>
+    <a class="btn sm" href="#apply">상담 신청</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="in heroGrid">
+    <div>
+      <p class="eyebrow">2027학년도 0기 모집</p>
+      <h1>관리에서<br>졸업하다</h1>
+      <p class="sub">독학재수학원은 지금 <b>누가 더 세게 관리하는가</b>로 경쟁합니다.
+        독공자는 <b>누가 더 빨리 혼자 설 수 있게 만드는가</b>로 경쟁합니다.
+        1년 뒤, 저희가 덜 필요해지게 만들겠습니다.</p>
+      <div class="cta">
+        <a class="btn" href="#apply">상담 신청하기</a>
+        <a class="btn ghost" href="#steps">3단 체계 먼저 보기</a>
+      </div>
+      <div class="tagstrip">
+        <span>벌점 제도 없음</span><span>질문 30분 응답 보장</span><span>성적 분포 전수 공개</span><span>직영 운영</span>
+      </div>
+    </div>
+    <div class="heroCard">
+      <div class="k">자율 단계제</div>
+      <div class="ledger">
+        <div class="row"><div class="lv">1단 — 입문<small>전면 관리 · 휴대폰 보관 · 교시제 고정</small></div><div class="pr">690,000</div></div>
+        <div class="row"><div class="lv">2단 — 연마<small>본인이 설계하고 코치가 검증</small></div><div class="pr">590,000</div></div>
+        <div class="row"><div class="lv">3단 — 독공<small>완전 자율 · 좌석과 시간 선택</small></div><div class="pr">490,000</div></div>
+      </div>
+      <p class="foot">단계가 오를수록 수강료가 내려갑니다. 할인이 아니라, 관리 비용이 실제로 줄어들기 때문입니다.</p>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="in">
+    <p class="eyebrow">문제</p>
+    <h2>독학재수가 무너지는 건<br>의지가 약해서가 아닙니다</h2>
+    <p class="lead">턴게이트, 휴대폰 수거, 교시제, 상벌점, 좌석 카메라. 업계의 관리 기술은 이미 끝까지 왔습니다.
+      그런데 중도 이탈은 줄지 않았습니다. 통제를 더 세게 한다고 풀리는 문제가 아니기 때문입니다.</p>
+    <div class="probs">
+      <div class="prob">
+        <p class="q">벌점이 공부보다 무섭습니다</p>
+        <p>지각 몇 번에 퇴원이 걸리면 학생은 학습이 아니라 벌점 회피를 최적화합니다. 불안이 커질수록 몰입은 떨어집니다.</p>
+      </div>
+      <div class="prob">
+        <p class="q">한 번 무너지면 못 돌아옵니다</p>
+        <p>일정이 깨진 다음 날을 위한 설계가 어디에도 없습니다. 중도 이탈의 가장 큰 원인인데 상품이 비어 있습니다.</p>
+      </div>
+      <div class="prob">
+        <p class="q">혼자라서 무너집니다</p>
+        <p>재종반에는 반이 있지만 독학재수에는 없습니다. 고립은 의지의 문제가 아니라 구조의 문제입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="steps" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="in">
+    <p class="eyebrow">해법 · 자율 단계제</p>
+    <h2>관리를 늘리지 않고,<br>단계적으로 걷어냅니다</h2>
+    <p class="lead">입소 첫날의 관리 강도는 업계 최고 수준입니다. 다만 끝까지 그러지는 않습니다.
+      데이터가 기준을 넘으면 통제를 하나씩 돌려드리고, 수강료도 함께 내려갑니다.</p>
+
+    <div class="rail">
+      <div class="step">
+        <div class="lvl">1단</div>
+        <h3>입문</h3>
+        <div class="price">690,000<small> 원 / 월</small></div>
+        <ul>
+          <li>휴대폰 보관, 교시제 고정</li>
+          <li>코치가 주간 계획을 설계</li>
+          <li>과목별 데일리 체크</li>
+          <li>독공 서클 주 1회</li>
+        </ul>
+        <div class="gate">승급 조건 · SDI 4주 연속 충족</div>
+      </div>
+      <div class="step">
+        <div class="lvl">2단</div>
+        <h3>연마</h3>
+        <div class="price">590,000<small> 원 / 월</small></div>
+        <ul>
+          <li>본인이 계획을 설계, 코치는 검증만</li>
+          <li>휴대폰 부분 반환</li>
+          <li>주간 회고 작성 의무</li>
+          <li>독공 서클 주 1회</li>
+        </ul>
+        <div class="gate">승급 조건 · SDI 6주 연속 충족</div>
+      </div>
+      <div class="step on">
+        <div class="lvl">3단</div>
+        <h3>독공</h3>
+        <div class="price">490,000<small> 원 / 월</small></div>
+        <ul>
+          <li>좌석과 시간 자율 선택</li>
+          <li>코치 면담은 요청 시에만</li>
+          <li>후배 서클 리딩 권한</li>
+          <li>입시 전략 1:1 우선 배정</li>
+        </ul>
+        <div class="gate">도달 · 이 단계가 목표입니다</div>
+      </div>
+    </div>
+    <p class="note">승급은 코치의 인상이 아니라 측정값으로 결정합니다. 기준에 미달하면 단계는 내려갑니다.
+      다만 그것은 처벌이 아니라 조정이며, 벌점으로 기록되지 않습니다.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="in">
+    <p class="eyebrow">차별점</p>
+    <h2>약속은 운영으로 증명합니다</h2>
+    <p class="lead">아래 항목은 전부 계약서와 운영 매뉴얼에 들어갑니다. 홍보 문구가 아닙니다.</p>
+    <div class="feat">
+      <div class="f">
+        <div class="i">01</div>
+        <h3>벌점 대신 복구 프로토콜</h3>
+        <p>무너진 날에 점수를 깎지 않습니다. 대신 <b>72시간 복구 플랜</b>이 자동으로 발동합니다. 분량을 줄인 재진입 루틴, 코치 15분 면담, 원인 기록.</p>
+        <p>기록에 남는 것은 무너진 사실이 아니라 돌아온 속도입니다.</p>
+      </div>
+      <div class="f">
+        <div class="i">02</div>
+        <h3>질문 30분 응답 보장</h3>
+        <p>과목별 전임 질문교사가 상주합니다. 실명·전공·출신·당일 근무표를 센터 입구와 앱에 상시 게시합니다.</p>
+        <p>30분 내 미응답이 월 3회를 넘으면 당월 수강료의 10%를 자동 환급합니다.</p>
+      </div>
+      <div class="f">
+        <div class="i">03</div>
+        <h3>순공 랭킹을 걸지 않습니다</h3>
+        <p>빌보드와 등수는 상위권만 움직이게 하고 나머지를 소진시킵니다. 독공자는 <b>지난주의 나</b>와만 비교합니다.</p>
+        <p>측정하는 것은 계획 이행률, 계획 정확도, 복구 속도, 자기교정 횟수입니다.</p>
+      </div>
+      <div class="f">
+        <div class="i">04</div>
+        <h3>독공 서클</h3>
+        <p>4–6인이 주 1회 50분 모입니다. 함께 공부하는 스터디가 아니라 한 주를 돌아보는 회고 모임입니다.</p>
+        <p>목적은 친목이 아니라 번아웃 조기 발견입니다. 월 1회 표준 척도 검사에서 위험군은 외부 상담 기관으로 연계합니다.</p>
+      </div>
+      <div class="f">
+        <div class="i">05</div>
+        <h3>재도전 트랙 분리</h3>
+        <p>2년차 이상은 1년차와 섞지 않습니다. 같은 방식으로 또 실패한 학생에게 필요한 것은 더 긴 자습이 아니라 전략 재설계입니다.</p>
+        <p>2027학년도 의대 490명 증원과 지역의사전형 대응 컨설팅을 기본 포함합니다.</p>
+      </div>
+      <div class="f">
+        <div class="i">06</div>
+        <h3>직영만 합니다</h3>
+        <p>가맹을 내주지 않습니다. 브랜드는 같은데 센터마다 다른 품질이 업계 불신의 뿌리이기 때문입니다.</p>
+        <p>상주 교사 수, 환불 규정, 퇴원 기준을 홈페이지에 상시 공개합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="log" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="in">
+    <p class="eyebrow">독공일지</p>
+    <h2>등수 대신<br>자기주도지수를 보냅니다</h2>
+    <div class="reportWrap">
+      <div class="report" aria-label="주간 리포트 예시">
+        <div class="hd"><b>독공일지</b><span>10월 3주 · 2단 연마</span></div>
+        <div class="metric">
+          <div class="t"><span>자기주도지수 SDI</span><b>82.4<i class="delta">+6.1</i></b></div>
+          <div class="bar"><i style="width:82%"></i></div>
+        </div>
+        <div class="metric">
+          <div class="t"><span>계획 이행률</span><b>91%<i class="delta">+4</i></b></div>
+          <div class="bar"><i style="width:91%"></i></div>
+        </div>
+        <div class="metric">
+          <div class="t"><span>계획 정확도</span><b>78%<i class="delta">+9</i></b></div>
+          <div class="bar"><i style="width:78%"></i></div>
+        </div>
+        <div class="metric">
+          <div class="t"><span>복구 속도</span><b>1.2일<i class="delta">−0.6</i></b></div>
+          <div class="bar"><i style="width:64%"></i></div>
+        </div>
+        <div class="metric">
+          <div class="t"><span>자기교정 횟수</span><b>7회<i class="delta">+2</i></b></div>
+          <div class="bar"><i style="width:47%"></i></div>
+        </div>
+        <div class="gate">3단 승급까지 2주</div>
+      </div>
+      <div class="explain">
+        <h3>네 가지만 봅니다</h3>
+        <p class="lead" style="margin-top:10px">공부한 시간은 결과를 설명하지 못합니다. 혼자 공부할 수 있게 되었는지를 설명하는 값만 남겼습니다.</p>
+        <ol>
+          <li><b>계획 이행률</b><span>세운 계획 중 실제로 끝낸 비율. 계획 난이도는 코치가 승인하므로 쉬운 계획으로 올릴 수 없습니다.</span></li>
+          <li><b>계획 정확도</b><span>예상한 소요 시간과 실제 소요 시간의 차이. 자기 능력을 아는 정도입니다.</span></li>
+          <li><b>복구 속도</b><span>무너진 뒤 정상 루틴으로 돌아오기까지 걸린 시간. 1년을 버티게 하는 값입니다.</span></li>
+          <li><b>자기교정 횟수</b><span>코치 지시 없이 스스로 계획을 고친 횟수. 자립의 가장 직접적인 증거입니다.</span></li>
+        </ol>
+        <p class="note">같은 리포트가 매주 학부모에게도 전송됩니다. 성적이 떨어진 주는 붉게 표시하지 않습니다.
+          떨어진 주를 비난하지 않는 것이 저희 방침입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pledge">
+  <div class="in pledgeGrid">
+    <div>
+      <p class="eyebrow">약속</p>
+      <h2>독학의 유일한 약점은<br>질문입니다</h2>
+      <p class="lead">질문지를 종이로 내고 이틀 뒤에 답을 받는다면, 독학재수를 선택한 이유가 사라집니다.
+        그래서 응답 시간을 약관에 넣었습니다. 지키지 못하면 돈으로 돌려드립니다.</p>
+      <div class="cta"><a class="btn" href="#apply">상담 신청하기</a></div>
+    </div>
+    <div class="clause">
+      <span class="no">수강 약관 제7조 · 질의응답 보장</span>
+      ① 재원생이 앱 또는 서면으로 제출한 질문에 대하여 운영시간 내 <b>30분 이내</b> 1차 응답한다.<br>
+      ② 제1항을 위반한 횟수가 <b>월 3회</b>를 초과하는 경우, 해당 월 수강료의 <b>10%</b>를 익월 자동 환급한다.<br>
+      ③ 응답 기록은 재원생과 보호자가 앱에서 상시 열람할 수 있다.
+    </div>
+  </div>
+</section>
+
+<section id="open">
+  <div class="in">
+    <p class="eyebrow">투명성</p>
+    <h2>자랑 대신 분포를 공개합니다</h2>
+    <p class="lead">첫해에는 합격 실적이 없습니다. 그래서 결과 대신 과정을 증거로 씁니다.
+      상위 사례만 골라 쓰는 대신, 전원의 데이터를 그대로 냅니다.</p>
+    <div class="open">
+      <div><b>성적 변화 분포</b><p>오른 학생, 그대로인 학생, 떨어진 학생의 비율을 전수 공개합니다.</p></div>
+      <div><b>중도 이탈률</b><p>분기별로 갱신합니다. 복구 프로토콜의 효과를 보여주는 값입니다.</p></div>
+      <div><b>3단 승급률</b><p>브랜드 약속이 지켜지고 있는지를 보여주는 가장 직접적인 숫자입니다.</p></div>
+      <div><b>상주 교사와 환불 규정</b><p>과목별 상주 교사 수, 환불 기준, 퇴원 기준을 상시 게시합니다.</p></div>
+    </div>
+    <p class="note">숨길 과거가 없다는 것이 신규 브랜드의 유일한 이점입니다. 그 이점을 쓰겠습니다.</p>
+  </div>
+</section>
+
+<section id="price" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="in">
+    <p class="eyebrow">요금</p>
+    <h2>자립할수록 저렴해집니다</h2>
+    <p class="lead">대치동 독학재수학원의 월 수강료는 대체로 70–80만 원대입니다.
+      독공자의 시작 가격은 그 아래이고, 끝 가격은 비교 대상이 없습니다.</p>
+    <div class="rail" style="margin-top:34px">
+      <div class="step"><div class="lvl">1단 입문</div><div class="price">690,000<small> 원</small></div>
+        <ul><li>전면 관리</li><li>식비 별도</li><li>교재·모의고사 별도</li></ul></div>
+      <div class="step"><div class="lvl">2단 연마</div><div class="price">590,000<small> 원</small></div>
+        <ul><li>자기 설계 + 코치 검증</li><li>식비 별도</li><li>교재·모의고사 별도</li></ul></div>
+      <div class="step on"><div class="lvl">3단 독공</div><div class="price">490,000<small> 원</small></div>
+        <ul><li>완전 자율 운영</li><li>식비 별도</li><li>입시 컨설팅 우선 배정</li></ul></div>
+    </div>
+    <p class="note">0기는 정원의 50%만 모집합니다. 0기 재원생에게는 수강료 할인 대신 운영 참여권을 드립니다.
+      규칙과 리포트 양식을 함께 설계하고, 결정에 투표합니다.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="in">
+    <p class="eyebrow">자주 묻는 질문</p>
+    <h2>먼저 말씀드릴 것들</h2>
+    <div class="faq">
+      <details open>
+        <summary>자율이라면 그냥 방치하는 것 아닌가요?</summary>
+        <div class="a">반대입니다. 1단의 관리 강도는 업계 최고 수준으로 설계했습니다. 휴대폰은 보관하고, 교시제는 고정이며,
+          계획은 코치가 짭니다. 다른 점은 그 상태를 1년 내내 유지하지 않는다는 것뿐입니다.
+          자율은 기본값이 아니라 데이터로 증명해야 얻는 권한입니다.</div>
+      </details>
+      <details>
+        <summary>벌점이 없으면 지각이 늘지 않나요?</summary>
+        <div class="a">지각은 단계 유지 조건에 직접 반영됩니다. 벌점이 쌓여 퇴원되는 대신, 단계가 내려가고 수강료가 올라갑니다.
+          학생이 지키려는 대상이 '벌점 회피'에서 '내 단계'로 바뀝니다. 불이익이 사라지는 것이 아니라 방향이 바뀌는 것입니다.</div>
+      </details>
+      <details>
+        <summary>3단에 못 가면 손해 아닌가요?</summary>
+        <div class="a">3단은 목표이지 의무가 아닙니다. 1단에 머물러도 받는 관리의 양은 다른 독학재수학원 이상입니다.
+          다만 저희는 1단에 오래 머무는 학생이 많아지면 그것을 학생의 실패가 아니라 저희 설계의 실패로 봅니다.
+          그래서 승급률을 공개합니다.</div>
+      </details>
+      <details>
+        <summary>합격 실적이 없는데 믿을 수 있나요?</summary>
+        <div class="a">없습니다. 0기이기 때문입니다. 대신 재원생 전원의 주간 데이터를 공개하고,
+          질의응답 응답 시간을 약관으로 보장하며, 환불과 퇴원 기준을 상시 게시합니다.
+          실적이 없는 상태에서 드릴 수 있는 증거는 과정과 계약뿐이라고 생각합니다.</div>
+      </details>
+      <details>
+        <summary>어떤 학생에게는 맞지 않나요?</summary>
+        <div class="a">맞지 않는 경우가 있습니다. 기초가 거의 없어 커리큘럼 자체를 떠먹여야 하는 경우,
+          본인 의사와 무관하게 등록이 결정된 경우에는 재종반이나 관리형 기숙학원이 더 낫습니다.
+          상담에서 그렇게 판단되면 그렇게 말씀드립니다.</div>
+      </details>
+      <details>
+        <summary>학부모는 무엇을 볼 수 있나요?</summary>
+        <div class="a">출결, 주간 독공일지, 단계 변동 이력, 질의응답 응답 기록을 앱에서 상시 확인하실 수 있습니다.
+          다만 실시간 영상 감시는 제공하지 않습니다. 감시받는 학생은 자기주도 학습으로 넘어가지 못합니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="apply" class="apply">
+  <div class="in applyGrid">
+    <div>
+      <p class="eyebrow">상담 신청</p>
+      <h2>먼저 맞는지부터<br>보겠습니다</h2>
+      <p class="lead">상담은 30분이며, 등록 권유로 시작하지 않습니다.
+        현재 성적표와 지난 1년의 공부 패턴을 보고, 독공자가 맞는지부터 말씀드립니다.</p>
+      <div class="contact">
+        <div>
+          <div class="k">전화 상담</div>
+          <div class="v">02-0000-0000<button class="copybtn" type="button" data-copy="02-0000-0000">복사</button></div>
+        </div>
+        <div>
+          <div class="k">카카오톡</div>
+          <div class="v">@독공자<button class="copybtn" type="button" data-copy="@독공자">복사</button></div>
+        </div>
+        <div>
+          <div class="k">센터</div>
+          <div class="v" style="font-size:15px;font-family:var(--f-body)">독공자 대치 · 서울 강남구 (주소 준비 중)</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form id="applyForm" novalidate>
+        <div class="fieldRow">
+          <div><label for="name">학생 이름</label><input id="name" name="name" required autocomplete="name"></div>
+          <div><label for="phone">연락처</label><input id="phone" name="phone" inputmode="tel" required placeholder="010-0000-0000" autocomplete="tel"></div>
+        </div>
+        <div class="fieldRow">
+          <div><label for="year">구분</label>
+            <select id="year" name="year">
+              <option>재수 1년차</option><option>재수 2년차 이상</option>
+              <option>고3 재학</option><option>반수 / 대학 재학</option><option>검정고시</option>
+            </select></div>
+          <div><label for="when">희망 상담 시간</label>
+            <select id="when" name="when">
+              <option>평일 오전</option><option>평일 오후</option><option>평일 저녁</option><option>주말</option>
+            </select></div>
+        </div>
+        <div><label for="msg">지난 1년, 공부가 가장 크게 무너졌던 때를 적어주세요</label>
+          <textarea id="msg" name="msg" placeholder="상담에서 가장 먼저 다루는 질문입니다. 편하게 적어주셔도 됩니다."></textarea></div>
+        <label class="consent"><input type="checkbox" id="agree" required>
+          <span>상담 진행을 위한 개인정보 수집·이용에 동의합니다. 수집 항목은 이름과 연락처이며, 상담 종료 후 3개월간 보관 후 파기합니다.</span></label>
+        <button class="btn block dark" type="submit" id="submitBtn">상담 신청하기</button>
+        <p id="formNote" style="font-size:12.5px;color:var(--grey);line-height:1.6">영업일 기준 1일 이내에 연락드립니다.</p>
+      </form>
+      <div class="ok" id="okBox" hidden>
+        <b>신청이 접수되었습니다</b>
+        영업일 기준 1일 이내에 적어주신 연락처로 연락드립니다.
+        급한 경우 02-0000-0000으로 전화 주셔도 됩니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="admin" hidden style="background:var(--bg);border-top:1px solid var(--line)">
+  <div class="in">
+    <p class="eyebrow">관리자 전용</p>
+    <h2>상담 신청 내역</h2>
+    <p class="lead">이 목록은 소유자와 편집자에게만 전달됩니다. 일반 방문자에게는 서버에서 아예 내려가지 않습니다.</p>
+    <div class="adminbar">
+      <span class="cnt">접수 <b id="adminCount">0</b>건</span>
+      <button class="pill" type="button" id="copyAll">전체 복사</button>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>접수</th><th>이름</th><th>연락처</th><th>구분</th><th>희망 시간</th><th>무너졌던 때</th><th>상태</th></tr></thead>
+        <tbody id="adminBody"></tbody>
+      </table>
+    </div>
+    <p id="adminEmpty" class="empty">아직 접수된 신청이 없습니다.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="in">
+    <div class="sig">
+      <svg width="126" height="126" viewBox="0 0 2048 2048" aria-label="독공자"><use href="#mk"/></svg>
+      <p class="signame">독공자</p>
+      <p class="sigtag">단 하나의 관리</p>
+    </div>
+    <div class="top">
+      <div>
+        독공자 대치 · 서울 강남구<br>
+        02-0000-0000 · 평일 09:00–22:00
+      </div>
+      <div>
+        상담은 30분이며, 등록 권유로 시작하지 않습니다.
+      </div>
+    </div>
+    <div class="legal">
+      상호 (주)독공자 · 대표 000 · 사업자등록번호 000-00-00000 · 학원설립운영등록 제0000호<br>
+      환불 규정과 퇴원 기준은 상담 시 서면으로 제공하며, 등록 후에도 앱에서 상시 열람하실 수 있습니다.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('applyForm'),
+      note=document.getElementById('formNote'),
+      okBox=document.getElementById('okBox'),
+      btn=document.getElementById('submitBtn');
+
+  // 런타임이 없는 환경(로컬 파일 등)에서도 페이지는 그대로 동작한다.
+  var ready=(function(){
+    if(!(window.claude&&typeof window.claude.use==='function'))
+      return Promise.resolve({db:null,uid:null,user:null});
+    return Promise.all([claude.use('db'),claude.use('user')]).then(function(r){
+      var db=r[0],user=r[1];
+      if(!user)return{db:db,uid:null,user:null};
+      return Promise.resolve(user.id()).then(
+        function(uid){return{db:db,uid:uid,user:user}},
+        function(){return{db:db,uid:null,user:user}});
+    }).catch(function(){return{db:null,uid:null,user:null}});
+  })();
+
+  function warn(msg){note.textContent=msg;note.style.color='var(--jade)'}
+
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('name'),phone=document.getElementById('phone'),
+        agree=document.getElementById('agree');
+    var bad=null;
+    if(!name.value.trim())bad=name; else if(!phone.value.trim())bad=phone; else if(!agree.checked)bad=agree;
+    if(bad){bad.focus();warn('이름, 연락처, 동의는 필수입니다.');return;}
+    btn.disabled=true;note.textContent='접수 중입니다…';note.style.color='var(--grey)';
+    var payload={
+      name:name.value.trim(), phone:phone.value.trim(),
+      year:document.getElementById('year').value,
+      when:document.getElementById('when').value,
+      msg:document.getElementById('msg').value.trim(),
+      status:'new', submittedAt:new Date().toISOString()
+    };
+    ready.then(function(c){
+      if(!c.db||!c.uid){
+        btn.disabled=false;
+        warn('지금 환경에서는 온라인 접수가 저장되지 않습니다. 02-0000-0000으로 전화 주시거나 카카오톡 @독공자로 보내주세요.');
+        return;
+      }
+      return c.db.doc('inquiries/'+c.uid).set(payload).then(function(){
+        f.hidden=true;okBox.hidden=false;
+      },function(){
+        btn.disabled=false;
+        warn('접수에 실패했습니다. 02-0000-0000으로 전화 주시면 바로 도와드리겠습니다.');
+      });
+    });
+  });}
+
+  // ── 관리자 열람 ──
+  ready.then(function(c){
+    if(!c.db||!c.user)return;
+    var admin=false;
+    try{admin=(c.user.isOwner&&c.user.isOwner())||(c.user.canEdit&&c.user.canEdit())}catch(e){}
+    if(!admin)return;
+    var sec=document.getElementById('admin'),body=document.getElementById('adminBody'),
+        cnt=document.getElementById('adminCount'),empty=document.getElementById('adminEmpty'),
+        copy=document.getElementById('copyAll'),rows=[];
+    sec.hidden=false;
+    function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
+    function when(iso){
+      var d=new Date(iso);if(isNaN(d))return esc(iso||'');
+      var p=function(n){return(n<10?'0':'')+n};
+      return d.getFullYear()+'.'+p(d.getMonth()+1)+'.'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+    }
+    c.db.collection('inquiries').orderBy('submittedAt','desc').limit(300).onSnapshot(function(snap){
+      rows=snap.docs.map(function(d){var v=d.data()||{};v.__id=d.id;return v});
+      cnt.textContent=rows.length;
+      empty.hidden=rows.length>0;
+      body.innerHTML=rows.map(function(v){
+        var done=v.status==='done';
+        return '<tr><td class="w">'+when(v.submittedAt)+'</td><td class="w">'+esc(v.name)+'</td>'+
+          '<td class="w">'+esc(v.phone)+'</td><td class="w">'+esc(v.year)+'</td>'+
+          '<td class="w">'+esc(v.when)+'</td><td class="msg">'+esc(v.msg)+'</td>'+
+          '<td class="w"><button class="pill'+(done?' done':'')+'" data-id="'+esc(v.__id)+
+          '" data-status="'+(done?'done':'new')+'">'+(done?'완료':'대기')+'</button></td></tr>';
+      }).join('');
+    },function(){ empty.hidden=false; empty.textContent='목록을 불러오지 못했습니다.'; });
+    body.addEventListener('click',function(e){
+      var b=e.target.closest?e.target.closest('button[data-id]'):null;
+      if(!b)return;b.disabled=true;
+      c.db.doc('inquiries/'+b.getAttribute('data-id'))
+        .update({status:b.getAttribute('data-status')==='done'?'new':'done'})
+        .catch(function(){b.disabled=false});
+    });
+    copy.addEventListener('click',function(){
+      var tsv=['접수\t이름\t연락처\t구분\t희망시간\t메시지\t상태'].concat(rows.map(function(v){
+        return [when(v.submittedAt),v.name,v.phone,v.year,v.when,(v.msg||'').replace(/\s+/g,' '),v.status]
+          .join('\t');})).join('\n');
+      var old=copy.textContent;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(tsv).then(function(){copy.textContent='복사됨';
+          setTimeout(function(){copy.textContent=old},1500)},function(){copy.textContent='복사 실패';
+          setTimeout(function(){copy.textContent=old},1500)});
+      }
+    });
+  });
+  document.querySelectorAll('.copybtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy'),old=b.textContent;
+      function done(){b.textContent='복사됨';setTimeout(function(){b.textContent=old},1400);}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(done,function(){sel()});
+      }else{sel()}
+      function sel(){
+        var r=document.createRange();r.selectNodeContents(b.parentNode);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        b.textContent='선택됨';setTimeout(function(){b.textContent=old},1400);
+      }
+    });
+  });
+})();
+</script>

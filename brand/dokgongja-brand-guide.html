@@ -1,0 +1,927 @@
+<title>독공자 브랜드 가이드</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: 긴 레퍼런스 문서. 데스크톱 좌측 고정 색인 + 단일 본문 컬럼, 모바일 1단. */
+:root{
+  --ink:#0F1626;        /* 감청 */
+  --paper:#F2EEE6;      /* 한지 */
+  --mk-ground:#0F1626;  /* 마크 바탕 — 테마와 무관하게 고정 */
+  --mk-line:#F2EEE6;    /* 마크 선 */
+  --surface:#FBF9F5;    /* 카드 */
+  --jade:#0E5A4E;       /* 청록 — 브랜드 액센트 */
+  --jade-soft:#E2EDE9;
+  --grey:#6B665E;       /* 담묵 */
+  --line:#DCD6CA;
+  --amber:#8A6418;
+  --crimson:#9A3327;
+  color-scheme:light;
+  --f-display:"Noto Serif KR",ui-serif,Georgia,serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#E9E5DC; --paper:#101214; --surface:#181B1E; --jade:#4FBCA6; --jade-soft:#13302B;
+  --grey:#9A958B; --line:#2A2E32; --amber:#D1A445; --crimson:#D97A68;
+  --mk-ground:#F2EEE6; --mk-line:#0F1626; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --ink:#E9E5DC; --paper:#101214; --surface:#181B1E; --jade:#4FBCA6; --jade-soft:#13302B;
+  --grey:#9A958B; --line:#2A2E32; --amber:#D1A445; --crimson:#D97A68;
+  --mk-ground:#F2EEE6; --mk-line:#0F1626; color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-weight:400;
+  font-size:15px;line-height:1.72;-webkit-font-smoothing:antialiased;margin:0}
+.wrap{max-width:1180px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+.shell{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:1000px){.shell{grid-template-columns:208px minmax(0,1fr);gap:56px;align-items:start}}
+
+/* ── 색인 ── */
+nav.toc{display:none}
+@media(min-width:1000px){
+  nav.toc{display:block;position:sticky;top:env(safe-area-inset-top,0px);padding-block:40px 40px;
+    max-height:100vh;overflow-y:auto}
+  nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+  nav.toc .grp{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--jade);margin:18px 0 6px;font-weight:600}
+  nav.toc .grp:first-child{margin-top:0}
+  nav.toc a{display:block;color:var(--grey);text-decoration:none;font-size:12.5px;line-height:1.5;
+    padding:3px 0;border-left:2px solid transparent;padding-left:10px}
+  nav.toc a:hover{color:var(--ink);border-left-color:var(--jade)}
+}
+
+/* ── 머리말 ── */
+header.masthead{padding-block:52px 40px;border-bottom:1px solid var(--line)}
+.lock{display:flex;align-items:center;gap:18px}
+.lock .wm{font-family:var(--f-display);font-weight:700;font-size:38px;line-height:1;letter-spacing:-.01em}
+.lock .en{font-family:var(--f-display);font-weight:500;font-size:9.5px;letter-spacing:.42em;
+  color:var(--grey);margin-top:9px;padding-left:2px}
+.masthead .lede{font-family:var(--f-display);font-weight:500;font-size:clamp(21px,3.4vw,30px);
+  line-height:1.52;margin:30px 0 0;max-width:22em;text-wrap:balance;letter-spacing:-.01em}
+.masthead .lede b{color:var(--jade);font-weight:700}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font-family:var(--f-mono);
+  font-size:11px;letter-spacing:.04em;color:var(--grey)}
+
+/* ── 섹션 ── */
+section{padding-block:46px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.eyebrow{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--jade);font-weight:600;margin:0 0 10px}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(22px,3vw,27px);line-height:1.34;
+  margin:0 0 6px;letter-spacing:-.015em;text-wrap:balance}
+h3{font-family:var(--f-body);font-weight:600;font-size:16px;margin:32px 0 10px;letter-spacing:-.005em}
+h4{font-family:var(--f-body);font-weight:600;font-size:13.5px;margin:0 0 6px}
+.sub{color:var(--grey);font-size:14px;margin:0 0 24px;max-width:46em}
+p{margin:0 0 15px;max-width:44em}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+em{font-style:normal;color:var(--jade);font-weight:600}
+a{color:var(--jade)}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+
+/* ── 공통 부품 ── */
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);padding:20px;min-width:0}
+.card p{font-size:13.5px;color:var(--grey);margin:0}
+.card p+p{margin-top:9px}
+.num{font-family:var(--f-mono);font-size:10.5px;color:var(--jade);font-weight:600;letter-spacing:.1em;
+  display:block;margin-bottom:9px}
+.stats{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:0 0 26px}
+.stat{background:var(--surface);padding:18px 18px 16px;min-width:0}
+.stat b{display:block;font-family:var(--f-mono);font-weight:600;font-size:26px;line-height:1.1;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:12px;color:var(--grey);margin-top:7px;line-height:1.45}
+.scroll{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--grey);font-weight:600;white-space:nowrap;background:var(--paper)}
+tbody th{font-weight:600;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+td.us{background:var(--jade-soft);color:var(--ink);font-weight:500}
+.money{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+ul.ticks li{padding-left:20px;position:relative;font-size:14px;max-width:44em}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:var(--jade)}
+.note{font-size:12px;color:var(--grey);line-height:1.6;margin-top:14px;max-width:46em}
+.src{font-family:var(--f-mono);font-size:10.5px;color:var(--grey);letter-spacing:.02em}
+
+/* ── 차별점 ── */
+.diff{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+.diff>div{background:var(--surface);padding:22px;display:grid;gap:16px;grid-template-columns:1fr;min-width:0}
+@media(min-width:760px){.diff>div{grid-template-columns:34px 1fr 1fr;align-items:start;gap:22px}}
+.diff .idx{font-family:var(--f-mono);font-size:19px;font-weight:600;color:var(--jade);line-height:1}
+.diff .vs{border-left:2px solid var(--line);padding-left:16px}
+@media(max-width:759px){.diff .vs{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:14px}}
+.diff .vs h4{color:var(--grey)}
+.diff .vs p{font-size:13px;color:var(--grey);margin:0}
+.diff .mine p{font-size:13.5px;margin:0}
+.diff .mine p+p{margin-top:8px}
+
+/* ── 로고 ── */
+.specimen{background:var(--surface);border:1px solid var(--line);padding:40px 24px;
+  display:flex;align-items:center;justify-content:center;min-height:150px}
+.specimen.dark{background:var(--ink)}
+.grid2{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.cap{font-family:var(--f-mono);font-size:10.5px;color:var(--grey);letter-spacing:.06em;margin-top:9px}
+.mark{display:block}
+.lock-h{display:flex;align-items:center;gap:var(--g,20px)}
+.lock-v{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.wm-s{font-family:var(--f-display);font-weight:700;line-height:1;letter-spacing:-.01em}
+.en-s{font-family:var(--f-display);font-weight:500;letter-spacing:.42em;color:var(--grey)}
+
+/* ── 컬러 ── */
+.swatches{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  grid-template-columns:repeat(auto-fit,minmax(154px,1fr))}
+.sw{background:var(--surface);padding:0}
+.sw .chip{height:88px;border-bottom:1px solid var(--line)}
+.sw .info{padding:13px 14px 15px}
+.sw b{display:block;font-size:13px;font-weight:600}
+.sw code{display:block;font-family:var(--f-mono);font-size:11px;color:var(--grey);margin-top:5px;
+  letter-spacing:.03em}
+.sw span{display:block;font-size:11.5px;color:var(--grey);margin-top:7px;line-height:1.5}
+
+/* ── 타이포 ── */
+.type-row{border-top:1px solid var(--line);padding:20px 0;display:grid;gap:8px;
+  grid-template-columns:1fr;align-items:baseline}
+@media(min-width:700px){.type-row{grid-template-columns:138px 1fr;gap:26px}}
+.type-row:last-child{border-bottom:1px solid var(--line)}
+.type-row .k{font-family:var(--f-mono);font-size:10.5px;color:var(--grey);letter-spacing:.07em;
+  text-transform:uppercase;padding-top:6px}
+.type-row .v{min-width:0}
+.type-row .v small{display:block;font-family:var(--f-mono);font-size:10.5px;color:var(--grey);
+  margin-top:7px;letter-spacing:.03em}
+
+/* ── 보이스 ── */
+.voice{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.voice>div{border:1px solid var(--line);background:var(--surface);padding:20px;min-width:0}
+.voice .tag{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:600;margin-bottom:12px;display:block}
+.voice .yes .tag{color:var(--jade)}
+.voice .no .tag{color:var(--crimson)}
+.voice q{display:block;font-size:14px;line-height:1.65;margin-bottom:10px;quotes:"“" "”"}
+.voice .no q{color:var(--grey);text-decoration:line-through;text-decoration-color:var(--line)}
+.words{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.words span{font-size:12px;border:1px solid var(--line);padding:3px 9px;color:var(--grey);
+  font-family:var(--f-mono);letter-spacing:.02em}
+
+/* ── 적용 ── */
+.apps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.mock{border:1px solid var(--line);background:var(--surface);padding:0;overflow:hidden;min-width:0}
+.mock .body{padding:20px}
+.bizcard{aspect-ratio:1.75;background:var(--ink);color:var(--paper);padding:20px;display:flex;
+  flex-direction:column;justify-content:space-between;max-width:100%}
+.bizcard .nm{font-family:var(--f-display);font-weight:700;font-size:15px}
+.bizcard .rl{font-size:11px;color:#9C958A;margin-top:3px}
+.sign{aspect-ratio:2.4;background:var(--jade);display:flex;align-items:center;justify-content:center;
+  gap:16px;max-width:100%}
+.report{background:var(--surface);padding:18px;font-family:var(--f-mono);font-size:11px;
+  line-height:1.9;color:var(--grey)}
+.report b{color:var(--ink)}
+.report .bar{display:inline-block;height:7px;background:var(--jade);vertical-align:middle;margin-left:6px}
+
+.rules{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.rule{border:1px solid var(--line);background:var(--surface);padding:16px;font-size:12.5px;
+  color:var(--grey);min-width:0}
+.rule b{display:block;color:var(--ink);font-size:13px;margin-bottom:5px;font-weight:600}
+.rule.bad{border-color:color-mix(in srgb,var(--crimson) 35%,var(--line))}
+.rule.bad b{color:var(--crimson)}
+
+footer{padding-block:40px 60px;color:var(--grey);font-size:12px;line-height:1.75}
+footer a{color:var(--grey)}
+.srcs{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none;max-width:52em}
+.srcs li{font-size:12px;color:var(--grey);padding-left:18px;position:relative}
+.srcs li::before{content:"—";position:absolute;left:0;color:var(--line)}
+:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="mk" viewBox="0 0 2048 2048">
+
+<path fill="var(--mk-line)" d="M 991.488 208.347 C 1441.64 190.297 1821.3 540.345 1839.79 990.475 C 1858.27 1440.61 1508.59 1820.61 1058.48 1839.53 C 607.751 1858.48 227.113 1508.22 208.601 1057.47 C 190.088 606.721 540.722 226.423 991.488 208.347 z"/>
+<path fill="var(--mk-line)" d="M 987.486 220.334 C 1431.44 200.05 1807.74 543.565 1827.9 987.521 C 1848.07 1431.48 1504.45 1807.69 1060.49 1827.73 C 616.697 1847.76 240.665 1504.3 220.51 1060.52 C 200.356 616.738 543.709 240.611 987.486 220.334 z"/>
+<path fill="var(--mk-ground)" d="M 992.928 254.448 C 1417.81 237.279 1776.19 567.74 1793.46 992.618 C 1810.73 1417.49 1480.35 1775.95 1055.48 1793.32 C 630.463 1810.7 271.859 1480.19 254.583 1055.17 C 237.307 630.149 567.904 271.623 992.928 254.448 z"/>
+<path fill="var(--mk-line)" d="M 1053.57 752.419 C 1053.91 752.375 1054.25 752.33 1054.59 752.286 C 1216.14 742.918 1353.78 869.759 1366.1 1029.31 C 1367.13 1042.68 1363.95 1053.26 1349.49 1053.81 C 1326.13 1054.71 1302.67 1054.33 1279.29 1054.3 L 1147 1054.26 C 1138.18 1045.03 1129.25 1037.53 1117.29 1032.73 C 1100.25 1025.81 1081.14 1026 1064.25 1033.28 C 1049.07 1039.98 1035.99 1054.79 1030.01 1070.44 C 1024.78 1084.11 1022.95 1113.49 1028.4 1127.19 C 1030.62 1132.76 1038.28 1139.45 1044.15 1140.82 C 1062.1 1144.99 1089.7 1144.89 1106.43 1136.12 C 1121.72 1128.43 1134.61 1113.17 1137.38 1096.02 C 1139.31 1084.1 1137.01 1069.5 1150.82 1063.8 C 1156.5 1061.52 1162.89 1061.76 1168.38 1064.48 C 1189.7 1074.81 1176.59 1113.97 1168.25 1130.03 C 1154.53 1156.5 1133.5 1171.17 1105.34 1179.95 L 1099.95 1191.26 C 1094 1203.01 1084.62 1217.81 1076.95 1228.62 C 1019.6 1309.57 932.411 1364.39 834.602 1380.97 C 819.577 1383.49 787.284 1391.16 776.109 1381.72 C 771.181 1377.56 769.886 1375.06 768.862 1368.83 C 766.921 1357.02 782.197 1346.33 790.523 1336.43 C 832.49 1286.52 848.242 1229.34 824.501 1167.15 C 819.325 1153.59 812.684 1142.35 806.634 1129.41 C 795.274 1105.13 788.851 1078.12 786.539 1051.45 C 779.939 979.669 802.825 908.288 849.934 853.723 C 903.512 790.628 971.521 758.86 1053.57 752.419 z"/>
+<path fill="var(--mk-ground)" d="M 1052.51 792.399 C 1057.98 791.596 1075.2 791.66 1080.5 791.863 C 1129.05 793.796 1176.01 809.684 1215.76 837.623 C 1278.55 881.695 1309.81 941.597 1322.85 1015.31 C 1271.14 1015.35 1215.1 1016.56 1163.87 1015.24 C 1142.45 998.015 1121.73 987.418 1093.59 986.748 C 1065.63 985.903 1038.49 996.187 1018.11 1015.34 C 994.86 1037.56 985.136 1063.62 984.97 1095.22 C 984.837 1120.68 983.914 1140.97 1003.28 1160.7 C 1019.86 1177.6 1039.49 1182 1062.16 1182.26 C 1055.67 1193 1050.73 1201.21 1043.48 1211.54 C 993.397 1281.41 923.335 1320.4 841.099 1339.7 C 880.362 1276.95 888.508 1214.24 860.185 1144.51 C 855.753 1133.21 849.081 1122.76 844.207 1111.7 C 810.39 1035.02 827.457 944.512 880.709 881.258 C 925.449 828.115 984.306 799.019 1052.51 792.399 z"/>
+<path fill="var(--mk-line)" d="M 1048.51 562.439 C 1099.36 559.484 1157 571.139 1205.53 585.906 C 1213.8 588.421 1223.3 592.244 1227.28 600.413 C 1229.6 605.17 1229.48 611.755 1227.38 616.641 C 1215.49 632.803 1199.53 649.494 1185.74 664.752 C 1168.52 682.819 1152.82 704.598 1133.86 720.708 C 1129.33 724.562 1100.21 718.92 1093.14 718.143 C 1070.91 715.72 1048.48 715.455 1026.2 717.354 C 992.286 719.99 959.11 728.605 928.202 742.801 C 855.782 775.92 805.761 831.304 778.154 905.5 C 772.531 922.725 771.446 946.434 748.02 947.277 C 735.524 947.342 722.828 947.432 710.32 947.125 C 643.326 945.478 615.943 962.351 638.194 882.356 C 656.26 815.726 690.152 754.445 736.987 703.726 C 820.546 613.003 926.071 567.527 1048.51 562.439 z"/>
+<path fill="var(--mk-ground)" d="M 1053.88 602.443 C 1094.53 600.936 1135.17 605.628 1174.41 616.357 L 1118.93 678.967 C 1060.07 669.863 1005.67 672.255 948.58 690.503 C 864.215 717.554 794.167 777.213 754.033 856.197 C 746.835 870.363 739.472 889.901 735.081 904.989 C 715.378 904.898 695.674 904.91 675.971 905.027 C 690.787 840.635 721.918 781.137 766.374 732.254 C 841.974 649.562 942.863 607.274 1053.88 602.443 z"/>
+<path fill="var(--mk-line)" d="M 1341.42 1065.19 C 1342.76 1065.03 1344.11 1064.91 1345.46 1064.84 C 1357.9 1064.16 1365.01 1069.22 1368.44 1081.1 C 1381.39 1125.93 1395.99 1170.89 1406.53 1216.27 C 1407.16 1221.77 1402.71 1231.63 1398.62 1234.67 C 1384.47 1245.21 1352.84 1241.29 1335.1 1241.1 L 1335.23 1380.2 C 1335.25 1402.53 1335.78 1425 1334.76 1447.3 C 1334.02 1463.57 1320.39 1466.08 1306.98 1466.17 C 1197.23 1466.89 1106.1 1428.47 1029.79 1349.76 C 1022.27 1341.39 1009.8 1329.57 1010.65 1317.97 C 1011.08 1312.71 1013.66 1307.86 1017.78 1304.56 C 1029.76 1294.8 1041.4 1302.84 1049.67 1312.62 C 1114.43 1389.13 1197.5 1421.56 1295.31 1429.08 L 1295.35 1289.67 C 1295.37 1268.31 1294.82 1245.94 1295.51 1224.67 C 1296.31 1199.84 1344.27 1206.78 1362.14 1206.8 C 1354.94 1181.95 1347.57 1157.15 1340.04 1132.4 C 1335.94 1118.85 1331.59 1105.29 1328.03 1091.6 C 1324.33 1077.35 1329.65 1071.67 1341.42 1065.19 z"/>
+</symbol><symbol id="em" viewBox="0 0 2048 2048">
+
+<path fill="var(--mk-ground)" d="M 991.005 301.025 C 1390.4 282.466 1729.23 591.16 1747.85 990.55 C 1766.47 1389.94 1457.83 1728.82 1058.44 1747.5 C 658.966 1766.18 320 1457.46 301.377 1057.98 C 282.754 658.508 591.528 319.589 991.005 301.025 z"/>
+<path fill="var(--mk-line)" d="M 1011.19 338.244 C 1389.97 330.863 1703.06 631.863 1710.59 1010.64 C 1718.12 1389.42 1417.24 1702.63 1038.47 1710.31 C 659.479 1718 346.058 1416.91 338.522 1037.92 C 330.987 658.931 632.192 345.629 1011.19 338.244 z"/>
+<path fill="var(--mk-ground)" d="M 993.378 346.14 C 1367.75 328.923 1685.25 618.355 1702.65 992.721 C 1720.06 1367.09 1430.78 1684.73 1056.43 1702.32 C 681.804 1719.92 363.889 1430.4 346.472 1055.77 C 329.056 681.138 618.738 363.368 993.378 346.14 z"/>
+<path fill="var(--mk-line)" d="M 1164.74 659.57 C 1105.02 646.748 1058.17 644.565 999.252 658.83 C 799.553 707.176 684.99 922.938 761.002 1114.77 C 768.932 1137.97 782.978 1162.26 788.803 1185.92 C 806.096 1256.17 787.062 1336.33 750.254 1397.41 C 740.23 1414.05 694.962 1479.8 677.884 1480.43 C 660.722 1474.42 678.13 1455.38 683.197 1445.83 C 714.66 1386.55 726.131 1322.44 715.814 1256.02 C 705.939 1192.44 669.472 1145.17 642.214 1088.71 C 577.238 954.39 596.878 796.05 675.697 671.969 C 745.013 564.936 853.473 489.29 977.862 461.22 C 1082.05 438.123 1195.42 446.342 1292.41 495.561 C 1297.23 498.007 1302.14 503.746 1297.74 510.233 C 1284.58 521.975 1270.07 532.245 1256.96 544.274 C 1206.86 590.222 1183.23 646.573 1172.67 712.469 C 1212.9 728.228 1222.24 733.552 1250.36 765.119 L 1286.62 806.119 C 1317 840.574 1347.64 875.194 1377.83 909.845 C 1380.88 913.588 1383.73 917.729 1385.76 922.098 C 1386.66 924.043 1386.41 925.271 1385.39 927.06 C 1380.7 935.268 1361.55 937.056 1353.2 938.616 C 1362.02 965.798 1366.37 995.086 1376.62 1021.73 C 1381.07 1033.29 1386.83 1045.32 1391.91 1056.65 C 1403.35 1082.38 1415.08 1107.98 1427.1 1133.44 C 1445.01 1171.41 1454.11 1175.6 1408.6 1188.75 C 1402.54 1190.46 1396.47 1192.12 1390.38 1193.71 C 1389.69 1199.01 1389.07 1209.78 1387.24 1213.69 C 1382.45 1217.08 1376.15 1215.28 1372.87 1210.75 C 1367.57 1203.41 1370.92 1181.38 1379.31 1177.66 C 1391.62 1172.2 1407.82 1169.57 1420.99 1165.02 C 1405.64 1132.68 1390.68 1100.17 1376.09 1067.48 C 1372.06 1058.38 1367.92 1049.25 1364.04 1040.09 C 1351.13 1009.65 1343.31 974.803 1335.5 942.708 C 1268.2 957.082 1171.81 993.393 1126.74 1046.79 C 1147.55 1092.8 1144.39 1150.82 1104.92 1186.74 C 1097.85 1193.18 1090.77 1197.12 1082.47 1201.85 C 1097.16 1262.14 1126.09 1308.49 1180.17 1341.47 C 1194.18 1350.11 1209.01 1357.35 1224.44 1363.1 C 1256.02 1374.9 1299.28 1383.57 1333.06 1378.59 C 1352.42 1375.73 1361.11 1355.41 1354.29 1338.35 C 1343.4 1311.11 1335.55 1288.69 1365.17 1268.59 C 1359.32 1264.57 1351.57 1262.01 1349.81 1255.28 C 1351.04 1242.36 1373.01 1240.76 1375.41 1232.06 C 1372.61 1228.96 1369.44 1229.23 1364.91 1228.73 L 1362.85 1224.69 C 1371.78 1222.68 1388.13 1217.35 1395.24 1221.12 C 1396.81 1223.33 1397.96 1224.73 1397.3 1227.68 C 1394.38 1240.79 1387.53 1247.66 1376.36 1253.29 C 1394.51 1267.61 1388.13 1276.01 1371.47 1287.26 C 1356.76 1297.19 1365.25 1314.6 1370.41 1327.21 C 1387.44 1371.41 1359.78 1399.43 1316.13 1398.66 C 1290.9 1398.22 1273.29 1395.19 1249.06 1390.31 C 1191.69 1411.99 1191.65 1504.54 1202.29 1553.74 C 1204.43 1563.63 1206.98 1573.53 1209.15 1583.42 C 1210.88 1591.3 1209.11 1594.43 1202.14 1597.91 C 1187.85 1598.52 1145.7 1571.23 1131.77 1563.12 C 1064.43 1523.96 998.031 1476.6 918.894 1465.66 C 854.736 1456.36 789.617 1471.59 739.246 1513.61 C 731.804 1519.81 725.086 1526.78 716.255 1519.43 C 707.963 1498.69 783.034 1464.58 797.399 1459.46 C 913.938 1417.93 1008.73 1468.16 1106.13 1526.39 C 1133.27 1542.66 1160.55 1558.68 1187.96 1574.48 C 1171.04 1509.97 1169.7 1429.96 1224.49 1382.95 C 1159.62 1358.64 1109.31 1319.1 1079.98 1254.99 C 1073.09 1239.75 1067.9 1223.8 1064.49 1207.44 C 1028.3 1211.82 1009.86 1204.95 979.226 1186.02 C 1005.07 1309.91 953.178 1390.47 834.13 1422.86 C 824.853 1425.39 813.425 1430.61 804.759 1432.88 C 792.047 1436.2 771.082 1454.87 759.451 1450.19 C 749.259 1440.53 767.194 1421.89 773.032 1412.58 C 782.212 1397.89 790.649 1382.75 798.313 1367.22 C 817.54 1328.31 833.599 1282.13 839.006 1238.41 C 841.256 1220.22 837.755 1217.31 830.57 1201.09 C 814.728 1165.12 796.245 1130.07 781.703 1093.56 C 771.934 1069.03 767.991 1043.56 766.091 1017.45 C 759.486 926.74 797.671 842.238 863.646 781.161 C 925.349 724.515 1006.87 694.439 1090.58 697.439 C 1113.63 698.371 1132.7 701.481 1154.82 706.971 C 1157.7 689.452 1159.83 676.74 1164.74 659.57 z"/>
+<path fill="var(--mk-ground)" d="M 1077.21 467.419 C 1144.59 465.778 1211.48 479.066 1273.11 506.33 C 1222.7 543.948 1192.9 583.736 1170.32 642.057 C 913.512 576.786 674.094 799.846 725.303 1060.22 C 734.623 1107.6 753.004 1143.05 769.64 1187.43 C 782.106 1220.69 775.894 1271.48 767.821 1305.99 C 759.788 1340.63 739.976 1383.06 718.863 1411.67 C 746.043 1336.23 745.79 1258.09 713.939 1183.84 C 708.003 1170 690.961 1139.25 682.877 1125.06 C 647.833 1063.55 626.157 1007.51 622.857 935.724 C 617.592 821.186 660.007 708.187 736.68 623.343 C 810.243 541.852 909.887 488.52 1018.5 472.507 C 1038.69 469.445 1056.81 468.455 1077.21 467.419 z"/>
+<path fill="var(--mk-ground)" d="M 853.738 1205.54 C 845.769 1188.9 838.597 1171.93 830.718 1155.38 C 812.578 1117.28 796.244 1088.71 788.809 1046.16 C 775.898 974.837 792.459 901.327 834.705 842.43 C 880.293 777.605 949.868 733.655 1027.99 720.334 C 1092.42 709.258 1163.33 717.784 1217.66 756.152 L 1013.87 962.645 L 1010.78 965.691 L 1010.99 966.84 C 1013.44 966.576 1013.52 966.695 1015.72 965.668 L 1037.04 958.463 C 1056.45 967.721 1078.59 976.66 1098.54 984.968 L 1111.16 971.597 C 1091.59 962.361 1071.89 953.394 1052.06 944.698 C 1060.47 936.385 1068.84 927.73 1077.16 919.305 C 1098.46 927.859 1119.62 936.733 1140.64 945.923 L 1153.29 932.018 C 1132.75 924.183 1111.44 914.224 1090.62 905.922 C 1099.83 896.76 1108.96 887.52 1118.01 878.206 C 1141.89 887.67 1167.17 896.782 1191.29 905.884 C 1196.1 901.725 1201.92 897.376 1206.98 893.422 C 1183.42 883.84 1155.47 874.262 1131.39 865.342 C 1138.68 857.722 1147.04 849.913 1154.65 842.523 C 1192.83 849.64 1232.98 853.583 1271.55 859.941 C 1280.55 856.039 1289.31 851.606 1297.78 846.664 L 1304.76 854.606 C 1206.2 896.103 1152.01 936.488 1077.38 1013.3 C 1070.25 1006.72 1061.06 1001.29 1052.01 997.821 C 1031.69 990.089 1009.13 990.712 989.258 999.555 C 966.222 1009.83 949.331 1028.93 940.551 1052.43 C 930.533 1079.38 931.492 1109.19 943.221 1135.44 C 921.745 1172.26 891.335 1188.07 853.738 1205.54 z"/>
+<path fill="var(--mk-ground)" d="M 1017.9 1011.38 C 1045.52 1009.29 1071.51 1024.65 1082.99 1049.85 C 1086.42 1057.56 1086.44 1072.26 1092.98 1077.04 C 1101.44 1083.24 1109.52 1068.24 1113.07 1062.44 C 1113.43 1063.4 1113.78 1064.35 1114.13 1065.31 C 1130.55 1110.47 1117 1169.24 1067.9 1186.89 C 986.124 1211.66 919.689 1104.01 969.747 1038.29 C 982.115 1022.05 997.833 1014.02 1017.9 1011.38 z"/>
+<path fill="var(--mk-ground)" d="M 949.567 1153.63 C 951.382 1155.35 952.619 1159.02 953.32 1161.35 C 967.867 1209.71 975.333 1271.7 951.292 1317.8 C 918.834 1380.05 863.914 1393.67 804.312 1413.93 C 799.546 1415.77 794.793 1417.65 790.052 1419.56 C 827.082 1367.46 854.649 1285.58 859.4 1221.95 C 896.431 1207.94 927.44 1186.7 949.567 1153.63 z"/>
+<path fill="var(--mk-ground)" d="M 1314.78 869.953 C 1318.46 872.774 1353 912.859 1358.84 919.508 C 1342.15 923.986 1323.38 926.327 1305.76 931.324 C 1237.46 950.687 1167.09 977.964 1117.01 1029.84 C 1111.45 1036.04 1107.26 1041 1102.2 1047.58 C 1097.89 1037.83 1095.04 1032.86 1089 1024.23 C 1169.94 945.934 1211.02 913.156 1314.78 869.953 z"/>
+<path fill="var(--mk-ground)" d="M 1225.11 772.574 C 1227.54 773.236 1288.69 837.127 1296.14 844.581 C 1280 842.816 1263.87 840.904 1247.77 838.843 L 1169.35 827.684 C 1187.67 810.637 1206.97 790.353 1225.11 772.574 z"/>
+<path fill="var(--mk-line)" d="M 1362.85 1224.69 L 1364.91 1228.73 C 1363.52 1228.47 1357.27 1227.73 1356.51 1226.49 C 1357.29 1225.05 1361.32 1224.88 1362.85 1224.69 z"/>
+</symbol></svg>
+<div class="wrap">
+<div class="shell">
+
+<nav class="toc" aria-label="목차">
+  <ol>
+    <li class="grp">1부 · 시장과 전략</li>
+    <li><a href="#summary">요약</a></li>
+    <li><a href="#market">시장 구조</a></li>
+    <li><a href="#rivals">경쟁 구도</a></li>
+    <li><a href="#gap">시장의 빈틈</a></li>
+    <li><a href="#position">포지셔닝</a></li>
+    <li><a href="#diff">차별점 7</a></li>
+    <li><a href="#price">상품과 가격</a></li>
+    <li><a href="#roadmap">런칭 로드맵</a></li>
+    <li><a href="#risk">리스크</a></li>
+    <li class="grp">2부 · 브랜드 가이드</li>
+    <li><a href="#platform">브랜드 플랫폼</a></li>
+    <li><a href="#naming">네이밍 체계</a></li>
+    <li><a href="#logo">로고</a></li>
+    <li><a href="#color">컬러</a></li>
+    <li><a href="#type">타이포그래피</a></li>
+    <li><a href="#voice">보이스와 카피</a></li>
+    <li><a href="#apply">적용</a></li>
+    <li><a href="#sources">출처</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<header class="masthead">
+  <div class="lock">
+    <svg class="mark" width="54" height="54" viewBox="0 0 2048 2048" aria-label="독공자 심볼"><use href="#mk"/></svg>
+    <div>
+      <div class="wm">독공자</div>
+      <div class="en">DOKGONGJA</div>
+    </div>
+  </div>
+  <p class="lede">독학재수 시장은 <b>누가 더 세게 관리하는가</b>로 경쟁합니다.
+    독공자는 <b>누가 더 빨리 관리에서 졸업시키는가</b>로 경쟁합니다.</p>
+  <div class="meta">
+    <span>브랜드 런칭 리포트 &amp; 아이덴티티 가이드</span>
+    <span>v1.0 · 2026.10</span>
+    <span>대상 · 2027학년도 N수 시장</span>
+  </div>
+</header>
+
+<!-- ══════════ 1부 ══════════ -->
+
+<section id="summary">
+  <p class="eyebrow">01 · Summary</p>
+  <h2>한 장 요약</h2>
+  <p class="sub">딥리서치 결과, 독학재수 시장은 성장하는 동시에 한 방향으로 수렴하고 있습니다. 그 수렴이 독공자의 기회입니다.</p>
+
+  <div class="stats">
+    <div class="stat"><b>16만+</b><span>2027학년도 N수생 전망<br><span class="src">서울경제 / 종로학원</span></span></div>
+    <div class="stat"><b>490명</b><span>2027 의대 증원분<br>(3,058→3,548명)</span></div>
+    <div class="stat"><b>70–80만</b><span>대치동 독학재수 월 수강료<br>(2025년 기준, 원)</span></div>
+    <div class="stat"><b>100+</b><span>잇올 전국 직영센터 수<br>(자사 발표)</span></div>
+  </div>
+
+  <ul class="ticks">
+    <li><strong>시장은 커진다.</strong> 의대 490명 증원과 지역의사전형 신설로 상위권 재도전 수요가 구조적으로 늘고, 2027학년도 N수생은 전년 대비 10% 이상 증가가 전망됩니다.</li>
+    <li><strong>그런데 상품은 똑같아진다.</strong> 잇올·수능선배·김엄마를 포함한 주요 브랜드의 핵심 기능은 사실상 한 세트로 수렴했습니다. 턴게이트 출결, 휴대폰 수거, 교시제, 벌점(주의장), 앱 기반 학부모 알림, 멘토 1:1, 데일리·위클리 테스트.</li>
+    <li><strong>경쟁축은 '통제 강도'다.</strong> 좌석 태블릿 카메라로 졸음을 감지해 직원이 깨우러 가는 단계까지 왔습니다. 더 셀 수 있는 여지가 거의 남지 않았습니다.</li>
+    <li><strong>통제 강도 경쟁은 세 가지 부작용을 남겼다.</strong> 벌점 스트레스와 강제 퇴원, 무너진 날의 회복 불가, 그리고 고립으로 인한 번아웃. 모두 후기에서 반복적으로 확인됩니다.</li>
+    <li><strong>그리고 아무도 책임지지 않는 질문이 하나 있다.</strong> "그래서 이 학원을 나가면 혼자 공부할 수 있습니까?" 곽금주 서울대 명예교수는 시스템 과의존 시 스스로 공부하는 힘을 기르기 어렵다고 지적했습니다. 업계가 파는 것은 통제인데, 학부모가 사려는 것은 결국 자립입니다.</li>
+    <li><em>독공자는 이 질문에 답하는 브랜드입니다.</em> 통제를 더 세게 하는 대신, 통제를 단계적으로 걷어내며 자기주도 역량을 수치로 증명합니다. 슬로건은 <strong>"관리에서 졸업하다"</strong>입니다.</li>
+  </ul>
+</section>
+
+<section id="market">
+  <p class="eyebrow">02 · Market</p>
+  <h2>시장 구조</h2>
+  <p class="sub">수요는 늘고, 가격대는 좁고, 진입장벽은 낮습니다. 브랜드 없이 들어가면 가격 경쟁에 갇히는 구조입니다.</p>
+
+  <h3>수요 — N수생은 다시 늘고 있다</h3>
+  <p>2025학년도 수능 N수생은 18만 1,893명으로 집계됐고(졸업생만 보면 16만 1,784명으로 21년 만의 최다), 2026학년도는 20만 2,762명으로 전년 대비 11.5% 증가가 전망됐습니다. 2027학년도 역시 10% 이상 증가 전망이 나와 있습니다.</p>
+  <p class="note">통계마다 N수생의 정의가 다릅니다. 16만 명대 수치는 대체로 <strong>졸업생</strong> 기준이고, 20만 명대 수치는 <strong>검정고시 등을 포함한 N수생 전체</strong> 기준입니다. 사업계획서에 쓸 때는 반드시 기준을 명시해야 신뢰를 얻습니다.</p>
+
+  <h3>촉발 요인 — 2027학년도의 특수성</h3>
+  <ul class="ticks">
+    <li>의대 정원 490명 증원(3,058 → 3,548명). 증원분은 <strong>지역의사전형</strong>으로 선발되며 대부분 비서울권 의대에 배정됩니다. 합격선 하락 전망이 상위권 재도전을 자극합니다.</li>
+    <li>선택과목 체제 <strong>통합형 수능의 마지막 해</strong>. 사회·과학탐구는 공통과목 필수 응시로 전환됩니다.</li>
+    <li>2026학년도 정시 탈락 건수가 전년 대비 6.9% 증가(42만 8,869건)해 재도전 모수가 커졌습니다.</li>
+  </ul>
+
+  <h3>가격 — 좁은 밴드에 몰려 있다</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>구분</th><th>월 비용</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><th>독학재수학원 일반</th><td class="money">60–70만 원대</td><td>메이저 브랜드는 70만 원대 이상</td></tr>
+        <tr><th>대치동 주요 브랜드</th><td class="money">70–80만 원</td><td>2025년 5월 기준 실사례</td></tr>
+        <tr><th>식비 포함 실부담</th><td class="money">90–100만 원</td><td>교재·모의고사 별도</td></tr>
+        <tr><th>독학 기숙형</th><td class="money">200만 원대</td><td>잇올 기숙 기준</td></tr>
+        <tr><th>재수종합반(재종)</th><td class="money">155–250만 원</td><td>서울 기준, 자료별 편차 큼</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">대치동 실사례: 에듀셀파 대치 80만 · 잇올 대치 80만 · 수능선배 75만 · 대치IDA 73만 · 수만휘 스파르타 72만 · 스마트정일 70만. 출처가 경쟁사(에듀셀파) 자체 블로그이므로 참고치로만 다룹니다.</p>
+
+  <h3>공급 — 진입장벽이 낮다</h3>
+  <p>프랜차이즈는 전문대졸 이상 학력에 가맹비 약 1천만 원 수준이면 원장이 될 수 있다는 지적이 있습니다. 그 결과 업계에는 실력이 부족한 질의응답 강사, 홈페이지에만 존재하는 이른바 <strong>유령 강사</strong>, 광고와 달리 학습 계획 상담을 하지 않는 센터에 대한 경고가 공공연히 돌아다닙니다. <em>이것은 독공자에게 위협이 아니라 기회입니다.</em> 신뢰를 제도로 증명하는 브랜드가 아직 없기 때문입니다.</p>
+</section>
+
+<section id="rivals">
+  <p class="eyebrow">03 · Competition</p>
+  <h2>경쟁 구도</h2>
+  <p class="sub">세 브랜드는 서로 다른 얼굴을 하고 있지만, 운영 모델의 뼈대는 같습니다. 이름이 그 사실을 드러냅니다.</p>
+
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>항목</th><th>잇올 스파르타</th><th>수능선배</th><th>김엄마</th><th>독공자</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>은유</th><td>군대 (스파르타)</td><td>선배</td><td>엄마</td><td class="us">수련자 — 학생 자신</td></tr>
+        <tr><th>규모</th><td>전국 직영 100+<br><span class="src">자사 발표</span></td><td>대치·분당·송파</td><td>분당·송도 등</td><td class="us">1호점 → 직영 확장</td></tr>
+        <tr><th>관리 핵심</th><td>3중 담임제<br>(학습·생활·멘토)</td><td>사감 상주<br>턴게이트 + QR 순찰</td><td>AI 안면인식<br>턴게이트</td><td class="us">자율 단계제<br>(3단 레벨)</td></tr>
+        <tr><th>진단·데이터</th><td>LCA 학습역량 진단<br>더박스 AI 시선추적</td><td>선배리포트<br>(매일 갱신)</td><td>앱 실시간 모니터링</td><td class="us">자기주도지수 SDI<br>(주간 공개)</td></tr>
+        <tr><th>멘토</th><td>명문대 멘토(CA)<br>대치동 입시 소장</td><td>의치대생 주 1회 1:1<br>위클리 테스트</td><td>명문대 멘토 1:1 클리닉</td><td class="us">과목 전임 질문교사<br>상주·실명 공개</td></tr>
+        <tr><th>이탈 통제</th><td>상벌점 · 네트워크 차단</td><td>외출 10분 초과 시 벌점</td><td>휴대폰 앱 제어</td><td class="us">벌점 없음<br>복구 프로토콜</td></tr>
+        <tr><th>월 수강료</th><td class="money">60–70만<br>(기숙 200만대)</td><td class="money">75만 (대치)</td><td class="money">비공개</td><td class="us money">레벨 연동<br>69 → 49만</td></tr>
+        <tr><th>약속하는 것</th><td>압도적 합격 실적</td><td>최적의 동반자</td><td>엄마 같은 관리</td><td class="us">관리로부터의 졸업</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">경쟁사 정보는 각 사 공식 홈페이지·보도자료·언론 보도·위키 문서를 종합한 것으로, 상당수가 자사 발표 수치입니다. 가격과 운영 방식은 수시로 바뀌므로 실제 영업 자료에 인용할 때는 재확인이 필요합니다.</p>
+
+  <h3>세 브랜드의 공통 전제</h3>
+  <div class="cards">
+    <div class="card"><span class="num">공통 01</span>
+      <h4>학생은 관리의 대상이다</h4>
+      <p>스파르타·선배·엄마. 세 이름 모두 <strong>주어가 학생이 아닙니다.</strong> 누군가가 학생을 끌고 가는 구조를 이름부터 선언하고 있습니다.</p></div>
+    <div class="card"><span class="num">공통 02</span>
+      <h4>통제는 끝까지 동일하다</h4>
+      <p>입소 첫날과 수능 D-30의 관리 강도가 같습니다. 1년을 다녀도 학생의 자율 권한은 늘지 않습니다.</p></div>
+    <div class="card"><span class="num">공통 03</span>
+      <h4>성과 지표가 결과뿐이다</h4>
+      <p>합격자 수와 순공 시간만 공개됩니다. 과정에서 무엇이 좋아졌는지 보여주는 지표가 없습니다.</p></div>
+  </div>
+</section>
+
+<section id="gap">
+  <p class="eyebrow">04 · Gap</p>
+  <h2>시장의 빈틈</h2>
+  <p class="sub">후기와 보도에서 반복적으로 확인되는 네 가지 불만입니다. 전부 '통제 강도 경쟁'의 부작용입니다.</p>
+
+  <div class="diff">
+    <div>
+      <div class="idx">A</div>
+      <div class="vs"><h4>벌점이 공포가 된다</h4>
+        <p>벌점 7회면 강제 퇴원, 외출 10분 초과 시 벌점, 주의장 누적 시 퇴원 조치. 운영이 자의적이라 "줬다 안 줬다 한다"는 불만도 나옵니다.</p></div>
+      <div class="mine"><h4>남는 문제</h4>
+        <p>학생이 학습이 아니라 <strong>벌점 회피</strong>를 최적화합니다. 불안이 커지면 몰입은 오히려 떨어집니다.</p></div>
+    </div>
+    <div>
+      <div class="idx">B</div>
+      <div class="vs"><h4>한 번 무너지면 못 돌아온다</h4>
+        <p>"일정이 무너지면 페이스를 되찾기 어렵다"는 지적이 독학재수의 대표 단점으로 꼽힙니다.</p></div>
+      <div class="mine"><h4>남는 문제</h4>
+        <p>업계 어디에도 <strong>무너진 다음 날을 위한 설계</strong>가 없습니다. 중도 이탈의 가장 큰 원인인데 상품이 비어 있습니다.</p></div>
+    </div>
+    <div>
+      <div class="idx">C</div>
+      <div class="vs"><h4>질문이 막힌다</h4>
+        <p>질문지를 종이로 제출하고 하루 이틀 뒤 답을 받는 사례, 질문 시간이 적거나 원장이 질문을 받지 않는 사례가 보고됩니다.</p></div>
+      <div class="mine"><h4>남는 문제</h4>
+        <p>독학의 유일한 약점이 질문입니다. 여기가 막히면 <strong>독학재수를 선택한 이유 자체가 무너집니다.</strong></p></div>
+    </div>
+    <div>
+      <div class="idx">D</div>
+      <div class="vs"><h4>혼자라서 무너진다</h4>
+        <p>"친구 없이 다니다 보니 우울증에 걸릴 것 같았다", "학원재수보다 심적으로 두 배는 괴롭다"는 후기가 반복됩니다.</p></div>
+      <div class="mine"><h4>남는 문제</h4>
+        <p>재종반에는 반이 있지만 독학재수에는 없습니다. 멘탈 관리를 내세우면서도 <strong>고립 자체를 설계로 푸는 곳이 없습니다.</strong></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="position">
+  <p class="eyebrow">05 · Positioning</p>
+  <h2>포지셔닝</h2>
+  <p class="sub">독공자는 경쟁축을 바꿉니다. 더 센 통제가 아니라, 더 빠른 자립입니다.</p>
+
+  <div class="cards">
+    <div class="card"><span class="num">포지셔닝 문장</span>
+      <p style="font-family:var(--f-display);font-size:17px;color:var(--ink);line-height:1.6">독공자는 관리를 파는 학원이 아니라, <strong style="color:var(--jade)">관리가 필요 없게 만드는</strong> 학원입니다.</p></div>
+    <div class="card"><span class="num">우리가 싸우는 적</span>
+      <p style="font-family:var(--f-display);font-size:17px;color:var(--ink);line-height:1.6">경쟁사가 아니라 <strong style="color:var(--jade)">관리 의존</strong>입니다. 학원을 나가는 순간 사라지는 공부 습관.</p></div>
+  </div>
+
+  <h3>이름의 근거</h3>
+  <p><strong>독공(獨工)</strong>은 홀로 공부하여 기량을 완성한다는 뜻이며, 판소리에서는 소리꾼이 홀로 들어가 소리를 완성하는 수련 과정을 가리키는 말로 쓰여 왔습니다. 거기에 사람을 뜻하는 <strong>자(者)</strong>를 붙였습니다.</p>
+  <p>스파르타는 군대를, 선배는 의존을, 엄마는 돌봄을 가리킵니다. <em>독공자는 학생 본인을 가리키는 유일한 이름입니다.</em> 이 차이는 간판에서 끝나지 않고 상품 구조 전체를 다르게 만듭니다.</p>
+</section>
+
+<section id="diff">
+  <p class="eyebrow">06 · Differentiation</p>
+  <h2>차별점 일곱 가지</h2>
+  <p class="sub">컨셉은 운영으로 증명되어야 합니다. 아래 일곱 가지는 모두 계약서와 운영 매뉴얼에 들어가는 항목입니다.</p>
+
+  <div class="diff">
+    <div>
+      <div class="idx">01</div>
+      <div class="vs"><h4>업계 표준</h4><p>입소 첫날부터 수능 전날까지 동일한 통제. 휴대폰 수거와 교시제가 1년 내내 그대로입니다.</p></div>
+      <div class="mine"><h4>독공자 — 자율 단계제(3단)</h4>
+        <p><strong>1단 입문</strong>: 전면 관리. 휴대폰 보관, 교시제 고정, 계획을 코치가 설계.<br>
+        <strong>2단 연마</strong>: 계획을 학생이 설계하고 코치가 검증. 휴대폰 부분 반환.<br>
+        <strong>3단 독공</strong>: 완전 자율 운영. 좌석·시간 자율 선택, 후배 서클 리딩.</p>
+        <p>승급 기준은 감정이 아니라 데이터입니다. 계획 이행률·복구 속도·자기교정 횟수가 4주 연속 기준을 넘으면 자동 승급합니다. <em>관리는 혜택이 아니라 졸업해야 할 단계입니다.</em></p></div>
+    </div>
+    <div>
+      <div class="idx">02</div>
+      <div class="vs"><h4>업계 표준</h4><p>벌점·주의장 누적 시 강제 퇴원. 무너진 날은 처벌의 대상입니다.</p></div>
+      <div class="mine"><h4>독공자 — 벌점 폐지, 복구 프로토콜</h4>
+        <p>지각·결석·붕괴가 발생하면 점수를 깎는 대신 <strong>72시간 복구 플랜</strong>이 자동 발동합니다. 분량을 줄인 재진입 루틴, 코치 15분 면담, 원인 기록.</p>
+        <p>다만 자율 단계는 되돌아갑니다. 처벌이 아니라 <strong>레벨 조정</strong>입니다. 학생은 벌점을 피하는 대신 레벨을 지키려 움직입니다.</p></div>
+    </div>
+    <div>
+      <div class="idx">03</div>
+      <div class="vs"><h4>업계 표준</h4><p>순공 시간 랭킹과 성적 빌보드로 줄을 세웁니다. 상위권만 동기부여되고 나머지는 소진됩니다.</p></div>
+      <div class="mine"><h4>독공자 — 자기주도지수(SDI)</h4>
+        <p>타인과 비교하지 않고 <strong>지난주의 나</strong>와 비교합니다. 네 가지 지표를 주간 공개합니다.</p>
+        <p>① 계획 이행률 ② 계획 정확도(예상 대비 실제 소요) ③ 복구 속도(무너진 뒤 정상 복귀까지 걸린 시간) ④ 자기교정 횟수(스스로 계획을 수정한 횟수).</p></div>
+    </div>
+    <div>
+      <div class="idx">04</div>
+      <div class="vs"><h4>업계 표준</h4><p>질문지를 제출하면 하루 이틀 뒤 답변. 강사 실명과 상주 여부는 공개되지 않습니다.</p></div>
+      <div class="mine"><h4>독공자 — 질문 30분 응답 보장</h4>
+        <p>과목별 전임 질문교사의 <strong>실명·전공·출신·당일 근무표</strong>를 센터 입구와 앱에 상시 게시합니다.</p>
+        <p>30분 내 미응답이 월 3회를 넘으면 <strong>당월 수강료 10%를 자동 환급</strong>합니다. 약관에 명시합니다. 업계의 유령 강사 문제를 계약으로 정면 반박하는 장치입니다.</p></div>
+    </div>
+    <div>
+      <div class="idx">05</div>
+      <div class="vs"><h4>업계 표준</h4><p>독학재수의 최대 약점인 고립을 멘탈 상담으로만 다룹니다.</p></div>
+      <div class="mine"><h4>독공자 — 독공 서클</h4>
+        <p>4–6인 소그룹이 <strong>주 1회 50분</strong> 모입니다. 함께 공부하는 스터디가 아니라 한 주를 돌아보는 회고 모임입니다. 무엇이 무너졌고 어떻게 복구했는지만 나눕니다.</p>
+        <p>목적은 친목이 아니라 <strong>번아웃 조기 발견</strong>입니다. 서클 코치가 이상 신호를 기록하고, 월 1회 표준 척도 검사에서 위험군으로 분류되면 외부 상담 기관으로 연계합니다.</p></div>
+    </div>
+    <div>
+      <div class="idx">06</div>
+      <div class="vs"><h4>업계 표준</h4><p>합격자 수와 수석 배출만 공개합니다. 모두 자사 집계이며 독립 검증이 없습니다.</p></div>
+      <div class="mine"><h4>독공자 — 전수 공개</h4>
+        <p>상위 사례만 고르지 않고 <strong>재원생 전원의 성적 변화 분포</strong>를 공개합니다. 오른 학생, 그대로인 학생, 떨어진 학생의 비율을 그대로 냅니다.</p>
+        <p>환불 규정, 퇴원 기준, 상주 교사 수, 중도 이탈률도 홈페이지에 상시 공개합니다. <em>업계 불신이 깊을수록 투명성은 가장 싼 마케팅입니다.</em></p></div>
+    </div>
+    <div>
+      <div class="idx">07</div>
+      <div class="vs"><h4>업계 표준</h4><p>재수 1년차와 3년차가 같은 반, 같은 커리큘럼에 섞입니다.</p></div>
+      <div class="mine"><h4>독공자 — 재도전 트랙 분리</h4>
+        <p><strong>2년차 이상 전용 트랙</strong>을 분리 운영합니다. 같은 방식으로 또 실패한 학생에게 필요한 것은 더 긴 자습이 아니라 전략 재설계입니다.</p>
+        <p>2027학년도 의대 증원과 지역의사전형은 상위권 재도전 수요를 키웁니다. 이 트랙은 <strong>지역의사전형 대응 컨설팅</strong>을 기본 포함합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <p class="eyebrow">07 · Offer</p>
+  <h2>상품과 가격</h2>
+  <p class="sub">가격표 자체가 브랜드 메시지가 되도록 설계합니다. 자립할수록 싸집니다.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>단계</th><th>관리 강도</th><th>월 수강료</th><th>승급 조건</th></tr></thead>
+      <tbody>
+        <tr><th>1단 — 입문</th><td>전면 관리 · 휴대폰 보관 · 교시제 고정</td><td class="money">690,000원</td><td>SDI 4주 연속 기준 충족</td></tr>
+        <tr><th>2단 — 연마</th><td>자기 설계 + 코치 검증 · 휴대폰 부분 반환</td><td class="money">590,000원</td><td>SDI 6주 연속 기준 충족</td></tr>
+        <tr><th>3단 — 독공</th><td>완전 자율 · 좌석/시간 선택 · 서클 리딩</td><td class="money">490,000원</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cards" style="margin-top:22px">
+    <div class="card"><span class="num">설계 의도 01</span>
+      <h4>할인이 아니라 증명이다</h4>
+      <p>가격 인하가 아니라 <strong>관리 비용의 실제 감소</strong>를 반영합니다. 3단 학생은 코치 리소스를 덜 쓰므로 원가가 실제로 낮아집니다. 마케팅 수사가 아니라 단위경제가 성립합니다.</p></div>
+    <div class="card"><span class="num">설계 의도 02</span>
+      <h4>경쟁사와 비교가 성립한다</h4>
+      <p>1단 69만 원은 대치동 밴드(70–80만) 안에 있어 저가 브랜드로 보이지 않습니다. 3단 49만 원은 <strong>같은 시장의 어떤 상품과도 비교되지 않습니다.</strong></p></div>
+    <div class="card"><span class="num">설계 의도 03</span>
+      <h4>학부모 설득 논리가 바뀐다</h4>
+      <p>"더 관리해 드립니다"가 아니라 <strong>"6개월 뒤 관리비를 덜 내시게 만들겠습니다"</strong>로 상담이 시작됩니다. 업계에 없는 문장입니다.</p></div>
+  </div>
+  <p class="note">금액은 대치동 실거래 밴드(70–80만 원)를 기준으로 잡은 설계안입니다. 실제 책정 전에 상권별 임대료, 좌석 수, 교사 인건비를 반영한 단위경제 검증이 필요합니다. 특히 3단 비중이 과도하게 늘 경우의 수익성 시나리오를 먼저 돌려야 합니다.</p>
+</section>
+
+<section id="roadmap">
+  <p class="eyebrow">08 · Roadmap</p>
+  <h2>런칭 로드맵</h2>
+  <p class="sub">개원 초기 6개월은 피하라는 것이 업계의 조언입니다. 그 불신을 역이용해 첫 기수를 설계합니다.</p>
+
+  <div class="diff">
+    <div>
+      <div class="idx">1</div>
+      <div class="vs"><h4>D-120 ~ D-90 · 기반</h4><p>1호점 입지 확정, 과목 전임 질문교사 채용, SDI 측정 앱 MVP, 약관(30분 응답 보장·환불·퇴원 기준) 확정</p></div>
+      <div class="mine"><h4>성공 기준</h4><p>질문교사 전 과목 상주 확보. <strong>이것이 안 되면 런칭을 미룹니다.</strong> 차별점 04가 무너지면 브랜드 전체가 무너집니다.</p></div>
+    </div>
+    <div>
+      <div class="idx">2</div>
+      <div class="vs"><h4>D-90 ~ D-60 · 0기 모집</h4><p>정원의 50%만 모집. "0기 공동 설계자" 포지션으로 수강료 할인 대신 <strong>운영 참여권</strong> 제공</p></div>
+      <div class="mine"><h4>성공 기준</h4><p>0기 전원의 SDI 주간 데이터 확보. 합격 실적이 없는 신규 브랜드의 유일한 증거 자산입니다.</p></div>
+    </div>
+    <div>
+      <div class="idx">3</div>
+      <div class="vs"><h4>D-60 ~ D+0 · 증명</h4><p>0기 SDI 분포 전수 공개, 3단 승급자 1호 배출, 학부모 공개 리포트 발행</p></div>
+      <div class="mine"><h4>성공 기준</h4><p>3단 승급률 15% 이상, 중도 이탈률 10% 이하. <em>승급자 사례가 다음 기수의 모든 광고를 대신합니다.</em></p></div>
+    </div>
+    <div>
+      <div class="idx">4</div>
+      <div class="vs"><h4>D+0 이후 · 확장</h4><p>2호점 직영 개원, 재도전 트랙 분리 운영, 2027 지역의사전형 컨설팅 패키지</p></div>
+      <div class="mine"><h4>성공 기준</h4><p>가맹 없이 <strong>직영</strong>만 확장. 프랜차이즈 품질 편차가 업계 불신의 뿌리이므로, 직영 자체가 차별점입니다.</p></div>
+    </div>
+  </div>
+
+  <h3>추적할 지표</h3>
+  <div class="stats" style="margin-top:14px">
+    <div class="stat"><b>3단 승급률</b><span>브랜드 약속의 직접 증거</span></div>
+    <div class="stat"><b>중도 이탈률</b><span>복구 프로토콜의 효과</span></div>
+    <div class="stat"><b>30분 응답률</b><span>환급 발생 시 즉시 경보</span></div>
+    <div class="stat"><b>서클 출석률</b><span>번아웃 선행 지표</span></div>
+  </div>
+</section>
+
+<section id="risk">
+  <p class="eyebrow">09 · Risk</p>
+  <h2>리스크와 대응</h2>
+  <p class="sub">이 전략에는 네 가지 구조적 위험이 있습니다. 미리 적어 둡니다.</p>
+
+  <div class="cards">
+    <div class="card"><span class="num">리스크 01</span>
+      <h4>학부모는 통제를 사러 온다</h4>
+      <p>"자율"이 "방치"로 읽히면 상담이 깨집니다. <strong>대응:</strong> 1단의 관리 강도를 업계 최고 수준으로 설계하고, 자율은 <strong>성취해야 얻는 것</strong>으로만 설명합니다. 첫 문장은 "저희는 더 세게 관리합니다. 다만 끝까지 그러지는 않습니다"입니다.</p></div>
+    <div class="card"><span class="num">리스크 02</span>
+      <h4>SDI가 조작 가능하다</h4>
+      <p>쉬운 계획을 세워 이행률만 올리는 행동이 나옵니다. <strong>대응:</strong> 계획 난이도를 코치가 승인하고, 계획 정확도와 실제 성적 변화를 교차 검증합니다. 승급 심사에 코치 거부권을 둡니다.</p></div>
+    <div class="card"><span class="num">리스크 03</span>
+      <h4>경쟁사가 베낀다</h4>
+      <p>대형 브랜드가 "자율 단계제"를 따라 할 수 있습니다. <strong>대응:</strong> 가격 연동은 베끼기 어렵습니다. 매출이 줄어드는 구조를 기존 사업자는 도입하기 힘듭니다. 가격표가 해자입니다.</p></div>
+    <div class="card"><span class="num">리스크 04</span>
+      <h4>실적이 없다</h4>
+      <p>첫해에는 합격 실적을 쓸 수 없습니다. <strong>대응:</strong> 결과 대신 <strong>과정 데이터</strong>를 공개 증거로 씁니다. 전수 공개는 신규 브랜드만 할 수 있는 선택이기도 합니다. 숨길 과거가 없기 때문입니다.</p></div>
+  </div>
+</section>
+
+<!-- ══════════ 2부 ══════════ -->
+
+<section id="platform">
+  <p class="eyebrow">10 · Brand Platform</p>
+  <h2>브랜드 플랫폼</h2>
+  <p class="sub">모든 카피와 디자인은 이 표에서 파생됩니다.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>항목</th><th>정의</th></tr></thead>
+      <tbody>
+        <tr><th>브랜드명</th><td>독공자 (獨工者) · DOKGONGJA</td></tr>
+        <tr><th>한 줄 정의</th><td>관리를 파는 학원이 아니라, 관리가 필요 없게 만드는 학원</td></tr>
+        <tr><th>태그라인</th><td style="font-family:var(--f-display);font-size:16px">단 하나의 관리<br>
+          <span style="font-family:var(--f-body);font-size:12.5px;color:var(--grey);line-height:1.6">관리를 많이 하지 않습니다. 끝까지 남겨야 할 하나만 합니다. 양이 아니라 개수를 말하는 문장입니다.</span></td></tr>
+        <tr><th>캠페인 슬로건</th><td style="font-family:var(--f-display);font-size:16px">관리에서 졸업하다</td></tr>
+        <tr><th>미션</th><td>관리 없이도 공부하는 사람을 만든다</td></tr>
+        <tr><th>적</th><td>관리 의존 — 학원을 나가는 순간 사라지는 공부 습관</td></tr>
+        <tr><th>약속</th><td>1년 뒤, 우리가 덜 필요해지게 만들겠습니다</td></tr>
+        <tr><th>가치</th><td><strong>자립</strong> 학생이 주어다 · <strong>증거</strong> 자랑 대신 분포를 공개한다 · <strong>복구</strong> 무너진 날을 설계한다 · <strong>절제</strong> 겁주지 않는다</td></tr>
+        <tr><th>타깃</th><td>1차: 자기주도 의지는 있으나 혼자 무너진 경험이 있는 N수생<br>2차: 통제형 학원을 이미 겪고 회의감을 가진 2년차 이상 재도전생<br>결정권자: 관리 강도보다 '졸업 후'를 묻는 학부모</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="naming">
+  <p class="eyebrow">11 · Naming</p>
+  <h2>네이밍 체계</h2>
+  <p class="sub">모든 하위 명칭은 '독공' 어근을 공유하고, 통제를 연상시키는 단어는 쓰지 않습니다.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>대상</th><th>명칭</th><th>쓰지 않는 말</th></tr></thead>
+      <tbody>
+        <tr><th>지점</th><td>독공자 대치 <span class="src">— '센터' 대신 지역명 직결</span></td><td>캠프, 관(館)</td></tr>
+        <tr><th>단계</th><td>1단 입문 · 2단 연마 · 3단 독공</td><td>A반, 상위반, 특별관리반</td></tr>
+        <tr><th>학습 기록</th><td>독공일지</td><td>학습일지, 생활기록부</td></tr>
+        <tr><th>주간 지표</th><td>자기주도지수 (SDI)</td><td>순공랭킹, 빌보드</td></tr>
+        <tr><th>소그룹</th><td>독공 서클</td><td>스터디, 조(組)</td></tr>
+        <tr><th>회복 절차</th><td>복구 프로토콜</td><td>벌점, 주의장, 경고</td></tr>
+        <tr><th>교직원</th><td>코치 · 질문교사 · 서클 코치</td><td>사감, 담임, 실장</td></tr>
+        <tr><th>학생</th><td>독공자</td><td>원생, 학생분, 수험생</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">'사감'과 '벌점'을 쓰지 않는 것은 미화가 아니라 상품의 실체입니다. 독공자에는 사감 직무도 벌점 제도도 실제로 존재하지 않습니다. 운영에 없는 것을 이름에서만 지우면 그 순간 거짓말이 됩니다.</p>
+</section>
+
+<section id="logo">
+  <p class="eyebrow">12 · Logo</p>
+  <h2>로고</h2>
+  <p class="sub">투구를 쓴 아테나의 옆얼굴을, 굵기가 일정한 한 겹의 선으로만 그렸습니다. 지혜로 싸우는 사람의 얼굴입니다.</p>
+
+  <div class="specimen">
+    <div class="lock-h" style="--g:26px">
+      <svg class="mark" width="76" height="76" viewBox="0 0 2048 2048" aria-label="독공자 심볼"><use href="#mk"/></svg>
+      <div>
+        <div class="wm-s" style="font-size:52px">독공자</div>
+        <div class="en-s" style="font-size:11px;margin-top:11px;padding-left:2px">DOKGONGJA</div>
+      </div>
+    </div>
+  </div>
+  <p class="cap">기본 조합형 — logo-primary-en.svg</p>
+
+  <h3>심볼의 의미</h3>
+  <div class="cards">
+    <div class="card"><span class="num">투구</span>
+      <h4>지혜로 싸운다</h4><p>아테나의 투구는 힘이 아니라 전략의 상징입니다. 독공자는 더 오래 앉아 있는 법이 아니라 <strong>혼자 싸우는 법</strong>을 가르칩니다.</p></div>
+    <div class="card"><span class="num">옆얼굴</span>
+      <h4>앞을 본다</h4><p>보는 사람을 응시하지 않습니다. 시선이 향한 곳은 카메라가 아니라 <strong>학생 자신의 목표</strong>입니다.</p></div>
+    <div class="card"><span class="num">한 겹의 선</span>
+      <h4>꾸미지 않는다</h4><p>굵기가 일정한 선 하나로만 그렸고 면을 채우지 않습니다. 과장하지 않는다는 브랜드의 태도를 형태로 지킵니다.</p></div>
+    <div class="card"><span class="num">닫힌 원</span>
+      <h4>1년이라는 기한</h4><p>원은 유한한 기간입니다. 이 안에서 끝낸다는 약속이자, 끝나면 나가야 한다는 뜻이기도 합니다.</p></div>
+  </div>
+  <p class="note">상담에서는 <strong>"지혜의 여신 아테나"</strong>로 설명합니다. "그리스 병사"나 "스파르타"라고 소개하지 마십시오. 경쟁 브랜드의 언어이며, 이 브랜드가 정면으로 반대하는 개념입니다.</p>
+
+  <h3>2단 체계 — 심볼과 엠블럼</h3>
+  <p>같은 얼굴을 획 수만 달리해 두 벌 운용합니다. 작은 곳에서는 뭉치지 않고, 큰 곳에서는 빈약해지지 않게 하기 위한 장치입니다.</p>
+  <div class="grid2">
+    <div>
+      <div class="specimen" style="min-height:150px">
+        <svg width="104" height="104" viewBox="0 0 2048 2048" aria-label="독공자 심볼"><use href="#mk"/></svg>
+      </div>
+      <p class="cap">심볼 — 기본. 24px까지 버팁니다</p>
+    </div>
+    <div>
+      <div class="specimen" style="min-height:150px">
+        <svg width="104" height="104" viewBox="0 0 2048 2048" aria-label="독공자 엠블럼"><use href="#em"/></svg>
+      </div>
+      <p class="cap">엠블럼 — 40mm 이상에서만</p>
+    </div>
+  </div>
+  <div class="scroll" style="margin-top:14px">
+    <table>
+      <thead><tr><th>구분</th><th>쓰는 곳</th><th>최소 크기</th></tr></thead>
+      <tbody>
+        <tr><th>심볼</th><td>앱 아이콘, 파비콘, SNS 프로필, 명함, 본문 로고, 조합형 전체</td><td class="money">24px / 8mm</td></tr>
+        <tr><th>엠블럼</th><td>간판, 현수막, 출입문 사인, 수료증, 굿즈, 표지</td><td class="money">120px / 40mm</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">두 마크를 한 화면에 동시에 쓰지 않습니다. 엠블럼은 심볼의 상위 버전이지 별도의 로고가 아닙니다.</p>
+
+  <h3>조합 변형</h3>
+  <div class="grid2">
+    <div>
+      <div class="specimen" style="min-height:130px">
+        <div class="lock-v">
+          <svg class="mark" width="58" height="58" viewBox="0 0 2048 2048" aria-hidden="true"><use href="#mk"/></svg>
+          <div>
+            <div class="wm-s" style="font-size:28px">독공자</div>
+            <div class="en-s" style="font-size:8px;margin-top:8px">DOKGONGJA</div>
+          </div>
+        </div>
+      </div>
+      <p class="cap">세로 조합형 — 간판·현수막·SNS 프로필</p>
+    </div>
+    <div>
+      <div class="specimen dark" style="min-height:130px">
+        <div class="lock-h" style="--g:20px">
+          <svg class="mark" width="52" height="52" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#F2EEE6;--mk-line:#0F1626"><use href="#mk"/></svg>
+          <div>
+            <div class="wm-s" style="font-size:34px;color:#F2EEE6">독공자</div>
+            <div class="en-s" style="font-size:8px;margin-top:8px;color:#9C958A">DOKGONGJA</div>
+          </div>
+        </div>
+      </div>
+      <p class="cap">반전형 — 어두운 배경 전용. 바탕과 선을 맞바꿉니다</p>
+    </div>
+    <div>
+      <div class="specimen" style="min-height:130px">
+        <svg class="mark" width="74" height="74" viewBox="0 0 2048 2048" aria-hidden="true"><use href="#mk"/></svg>
+      </div>
+      <p class="cap">심볼 단독 — 앱 아이콘·파비콘·굿즈</p>
+    </div>
+    <div>
+      <div class="specimen" style="min-height:130px">
+        <div class="lock-h" style="--g:20px">
+          <svg class="mark" width="52" height="52" viewBox="0 0 2048 2048" aria-hidden="true"><use href="#mk"/></svg>
+          <div class="wm-s" style="font-size:34px">독공자</div>
+        </div>
+      </div>
+      <p class="cap">국문 단독형 — 영문이 불필요한 국내 인쇄물</p>
+    </div>
+  </div>
+
+  <h3>사용 규칙</h3>
+  <div class="rules">
+    <div class="rule"><b>여백</b>심볼 지름의 <strong>1/3</strong> 이상을 로고 사방에 비웁니다. 다른 요소를 넣지 않습니다.</div>
+    <div class="rule"><b>최소 크기</b>심볼 <strong>24px / 8mm</strong>, 엠블럼 <strong>120px / 40mm</strong>, 조합형 가로 <strong>120px / 30mm</strong>.</div>
+    <div class="rule"><b>배경</b>한지 위에는 기본형, 감청·청록 위에는 반전형을 씁니다. 사진 위에서는 단색 판을 깔아야 합니다.</div>
+    <div class="rule bad"><b>금지 — 선 굵기 변경</b>확대·축소는 비율 그대로만 합니다. 선만 두껍게 하거나 얇게 만들지 않습니다.</div>
+    <div class="rule bad"><b>금지 — 면 채우기</b>선으로 그린 얼굴을 실루엣으로 메우지 않습니다. 비어 있음이 이 마크의 성격입니다.</div>
+    <div class="rule bad"><b>금지 — 원 제거</b>투구만 떼어내 쓰지 않습니다. 원이 없으면 '기한 안에 끝낸다'는 의미가 사라집니다.</div>
+    <div class="rule bad"><b>금지 — 색 교체</b>감청·한지·청록 외의 색을 쓰지 않습니다. 특히 빨강과 주황은 경쟁 브랜드의 영역입니다.</div>
+    <div class="rule bad"><b>금지 — 효과</b>그림자, 그라데이션, 외곽선, 기울임, 회전을 적용하지 않습니다.</div>
+    <div class="rule bad"><b>금지 — 재조판</b>워드마크를 다른 서체로 다시 쓰지 않습니다. 제공된 아웃라인 파일만 씁니다.</div>
+    <div class="rule bad"><b>금지 — 혼용</b>심볼과 엠블럼을 같은 화면에 함께 쓰지 않습니다.</div>
+  </div>
+</section>
+
+<section id="color">
+  <p class="eyebrow">13 · Color</p>
+  <h2>컬러</h2>
+  <p class="sub">경쟁 브랜드는 대부분 빨강과 주황에 몰려 있습니다. 독공자는 감청과 청록으로 갑니다.</p>
+
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#0F1626"></div>
+      <div class="info"><b>감청 Navy</b><code>#0F1626</code><span>로고 바탕·본문. 검정 대신 깊은 청색</span></div></div>
+    <div class="sw"><div class="chip" style="background:#0E5A4E"></div>
+      <div class="info"><b>청록 Jade</b><code>#0E5A4E</code><span>브랜드 액센트. 강조·CTA·상승 지표</span></div></div>
+    <div class="sw"><div class="chip" style="background:#3FA894"></div>
+      <div class="info"><b>밝은 청록</b><code>#3FA894</code><span>어두운 배경 전용. 밝은 면에는 쓰지 않음</span></div></div>
+    <div class="sw"><div class="chip" style="background:#F2EEE6;border-bottom:1px solid var(--line)"></div>
+      <div class="info"><b>한지 Paper</b><code>#F2EEE6</code><span>기본 배경. 순백 대신 미색</span></div></div>
+    <div class="sw"><div class="chip" style="background:#6B665E"></div>
+      <div class="info"><b>담묵 Grey</b><code>#6B665E</code><span>보조 텍스트·캡션. 중성회색 아님</span></div></div>
+    <div class="sw"><div class="chip" style="background:#8A6418"></div>
+      <div class="info"><b>주의 Amber</b><code>#8A6418</code><span>복구 프로토콜 발동 상태 표시</span></div></div>
+  </div>
+
+  <h3>사용 비율</h3>
+  <ul class="ticks">
+    <li><strong>한지 70 · 감청 22 · 청록 7 · 기타 1.</strong> 청록은 한 화면에 한두 곳에만 씁니다. 넓은 면을 청록으로 채우는 것은 간판과 지점 사인에서만 허용합니다.</li>
+    <li><strong>로고는 2색만 씁니다.</strong> 감청과 한지뿐이며 청록은 들어가지 않습니다. 청록은 로고 바깥, 즉 강조와 데이터에서 일합니다. 로고가 조용해야 나머지가 말을 할 수 있습니다.</li>
+    <li><strong>빨강은 쓰지 않습니다.</strong> 합격·수능·긴급을 연상시키는 빨강은 공포 마케팅의 색이며, 경쟁 브랜드가 이미 점유하고 있습니다. 오류 표시에만 최소한으로 씁니다.</li>
+    <li><strong>성적 그래프에도 규칙이 있습니다.</strong> 상승은 청록, 하락은 담묵입니다. 하락을 빨강으로 칠하지 않습니다. 떨어진 주를 비난하지 않는 것이 브랜드의 입장입니다.</li>
+  </ul>
+</section>
+
+<section id="type">
+  <p class="eyebrow">14 · Typography</p>
+  <h2>타이포그래피</h2>
+  <p class="sub">제목은 명조, 본문은 고딕. 경쟁사가 모두 두꺼운 고딕 일색인 시장에서 가장 빠른 차별화 수단입니다.</p>
+
+  <div class="type-row">
+    <div class="k">브랜드 · 제목</div>
+    <div class="v"><div style="font-family:var(--f-display);font-weight:700;font-size:clamp(24px,4vw,34px);line-height:1.4;letter-spacing:-.015em">단 하나의 관리</div>
+      <small>Noto Serif KR Bold 700 · 자간 −1.5% · 로고, 헤드라인, 슬로건</small></div>
+  </div>
+  <div class="type-row">
+    <div class="k">본문</div>
+    <div class="v"><div style="font-size:15px;line-height:1.72;max-width:30em">독공자는 관리를 파는 학원이 아니라, 관리가 필요 없게 만드는 학원입니다. 1단에서는 저희가 설계하고, 3단에서는 본인이 설계합니다.</div>
+      <small>IBM Plex Sans KR Regular 400 · 행간 1.72 · 본문, 상담자료, 약관</small></div>
+  </div>
+  <div class="type-row">
+    <div class="k">강조 · 레이블</div>
+    <div class="v"><div style="font-weight:600;font-size:15px">자율 단계제 · 복구 프로토콜 · 질문 30분 응답 보장</div>
+      <small>IBM Plex Sans KR SemiBold 600 · 소제목, 버튼, 메뉴</small></div>
+  </div>
+  <div class="type-row">
+    <div class="k">데이터 · 수치</div>
+    <div class="v"><div style="font-family:var(--f-mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em">SDI 82.4 &nbsp; 이행률 91% &nbsp; 복구 1.2일</div>
+      <small>IBM Plex Mono 500/600 · 고정폭 숫자 필수 · 리포트, 지표, 가격</small></div>
+  </div>
+
+  <p class="note" style="margin-top:22px">본문 고딕은 Pretendard로 대체할 수 있습니다. 단, <strong>제목 명조는 대체 불가</strong>입니다. 명조를 고딕으로 바꾸는 순간 경쟁사와 구분되지 않습니다. 숫자는 어디서든 고정폭(tabular)으로 세로 정렬합니다. 지표를 파는 브랜드이기 때문입니다.</p>
+</section>
+
+<section id="voice">
+  <p class="eyebrow">15 · Voice</p>
+  <h2>보이스와 카피</h2>
+  <p class="sub">업계 카피는 대체로 겁을 주거나 과장합니다. 독공자는 숫자를 말하고 문장을 짧게 끊습니다.</p>
+
+  <h3>원칙 네 가지</h3>
+  <ul class="ticks">
+    <li><strong>학생을 주어로 쓴다.</strong> "관리해 드립니다"가 아니라 "스스로 설계하게 됩니다".</li>
+    <li><strong>겁주지 않는다.</strong> 불안을 자극해 등록시키면, 그 불안이 그대로 이탈률이 됩니다.</li>
+    <li><strong>숫자 없는 형용사를 쓰지 않는다.</strong> '압도적' 대신 '3단 승급률 18%'.</li>
+    <li><strong>못 하는 것을 먼저 말한다.</strong> 모두에게 맞는 학원이 아니라고 밝히는 것이 가장 강한 신뢰 장치입니다.</li>
+  </ul>
+
+  <div class="voice" style="margin-top:28px">
+    <div class="yes"><span class="tag">이렇게 씁니다</span>
+      <q>1년 뒤, 저희가 덜 필요해지게 만들겠습니다.</q>
+      <q>저희는 더 세게 관리합니다. 다만 끝까지 그러지는 않습니다.</q>
+      <q>무너진 날은 기록하지 않습니다. 돌아온 속도를 기록합니다.</q>
+      <q>지난주의 나와만 비교합니다.</q>
+      <q>질문은 30분 안에 답합니다. 못 지키면 수강료를 돌려드립니다.</q></div>
+    <div class="no"><span class="tag">이렇게 쓰지 않습니다</span>
+      <q>압도적 합격, 역대 최다 기록 달성</q>
+      <q>지금 결정하지 않으면 1년을 또 잃습니다</q>
+      <q>엄마처럼 챙겨 드립니다</q>
+      <q>스파르타식 철저한 통제</q>
+      <q>명문대 선배가 끌어 드립니다</q></div>
+  </div>
+
+  <h3>단어 선택</h3>
+  <div class="cards" style="margin-top:14px">
+    <div class="card"><span class="num">권장</span>
+      <div class="words"><span>설계한다</span><span>복구한다</span><span>승급</span><span>기록</span><span>분포</span><span>스스로</span><span>단계</span><span>검증</span><span>공개</span></div></div>
+    <div class="card"><span class="num">금지</span>
+      <div class="words"><span>벌점</span><span>사감</span><span>통제</span><span>압도적</span><span>관리해 드립니다</span><span>놓치면</span><span>마지막 기회</span><span>스파르타</span></div></div>
+  </div>
+</section>
+
+<section id="apply">
+  <p class="eyebrow">16 · Application</p>
+  <h2>적용</h2>
+  <p class="sub">브랜드가 실제로 보이는 네 지점입니다.</p>
+
+  <div class="apps">
+    <div class="mock">
+      <div class="bizcard">
+        <div class="lock-h" style="--g:12px">
+          <svg width="26" height="26" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0F1626;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+          <span style="font-family:var(--f-display);font-weight:700;font-size:17px">독공자</span>
+        </div>
+        <div>
+          <div class="nm">박원일</div>
+          <div class="rl">수학 질문교사 · 대치</div>
+          <div class="rl" style="font-family:var(--f-mono);margin-top:9px;letter-spacing:.02em">상주 09:00–22:00</div>
+        </div>
+      </div>
+      <div class="body"><h4>명함</h4><p style="font-size:12.5px;color:var(--grey);margin:0">질문교사 명함에는 <strong>상주 시간</strong>을 반드시 넣습니다. 약속을 인쇄물에 박아 두는 장치입니다.</p></div>
+    </div>
+
+    <div class="mock">
+      <div class="sign">
+        <svg width="40" height="40" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0E5A4E;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+        <div style="color:#F2EEE6">
+          <div style="font-family:var(--f-display);font-weight:700;font-size:25px;line-height:1">독공자</div>
+          <div style="font-family:var(--f-mono);font-size:9.5px;letter-spacing:.2em;margin-top:7px;opacity:.75">대치</div>
+        </div>
+      </div>
+      <div class="body"><h4>지점 사인</h4><p style="font-size:12.5px;color:var(--grey);margin:0">청록 전면에 한지색 1도. 간판에서만 청록을 넓은 면으로 씁니다. 지점명은 고정폭으로 작게.</p></div>
+    </div>
+
+    <div class="mock">
+      <div style="padding:22px;display:flex;align-items:center;justify-content:center;gap:16px;background:var(--surface)">
+        <div style="width:82px;height:82px;border-radius:18px;background:#0F1626;display:flex;align-items:center;justify-content:center">
+          <svg width="42" height="42" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0F1626;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+        </div>
+        <div style="width:50px;height:50px;border-radius:11px;background:#0F1626;display:flex;align-items:center;justify-content:center">
+          <svg width="26" height="26" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0F1626;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+        </div>
+      </div>
+      <div class="body"><h4>앱 아이콘</h4><p style="font-size:12.5px;color:var(--grey);margin:0">감청 바탕에 한지색 선. 원판이 배경에 녹아 투구만 남습니다. 축소해도 선 굵기는 그대로 둡니다.</p></div>
+    </div>
+
+    <div class="mock">
+      <div class="report">
+        <div><b>독공일지</b> · 10월 3주</div>
+        <div style="margin-top:8px">단계 <b>2단 연마</b></div>
+        <div>SDI <b>82.4</b><span class="bar" style="width:52px"></span></div>
+        <div>계획 이행률 <b>91%</b><span class="bar" style="width:58px"></span></div>
+        <div>복구 속도 <b>1.2일</b><span class="bar" style="width:22px"></span></div>
+        <div>자기교정 <b>7회</b><span class="bar" style="width:30px"></span></div>
+        <div style="margin-top:9px;color:var(--jade)">3단 승급까지 2주</div>
+      </div>
+      <div class="body"><h4>주간 리포트</h4><p style="font-size:12.5px;color:var(--grey);margin:0">등수를 쓰지 않습니다. 지난주 대비 변화와 승급까지 남은 기간만 보여줍니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sources">
+  <p class="eyebrow">17 · Sources</p>
+  <h2>출처와 한계</h2>
+  <p class="sub">이 리포트는 공개 자료만으로 작성했습니다. 자료의 성격과 한계를 함께 적습니다.</p>
+
+  <h3>주요 출처</h3>
+  <ul class="srcs">
+    <li>베리타스알파 — 2027수능 N수생·의대증원·사탐런 전망 / 2025대입 N수생 통계</li>
+    <li>서울경제 — 2027학년도 N수생 16만 명 전망, 정시 탈락 건수 분석(종로학원 자료 인용)</li>
+    <li>뉴스핌 · 아시아경제 — 2027학년도 의대 490명 증원, 지역의사전형 신설</li>
+    <li>잇올 공식 홈페이지 — 3중 담임제, LCA 학습역량 진단, 몰입 루틴 시스템</li>
+    <li>나무위키 '잇올 스파르타' / '독학재수학원' — 연혁, 직영센터 수, 가격대, 업계 비판 항목</li>
+    <li>디지털타임스(dhnews) — 수능선배 송파점·분당점 개강 보도(의치대 멘토, 선배리포트, 턴게이트, 외출 10분 규정)</li>
+    <li>한국일보(2021) — 김엄마교육 '김엄마엣홈' 소개 / 송도 지점 소개 페이지 — AI 안면인식·턴게이트·멘토 클리닉</li>
+    <li>다음뉴스(2026.6.30) — 대치동 관리형 독서실 현장 취재: 좌석 태블릿 졸음 감지, 주의장 제도, 곽금주 서울대 명예교수 코멘트</li>
+    <li>에듀셀파 블로그(2025.5) — 대치동 독학재수학원 월 수강료 비교표</li>
+    <li>오르비 · 더쿠 — 독학재수 재원생 후기(벌점 7회 퇴원, 질문 지연, 고립감)</li>
+    <li>한국소비자원 · 공정거래위원회 — 학원 중도 해지 환급 기준, 학원비 환불 분쟁 상담 통계</li>
+  </ul>
+
+  <h3>한계</h3>
+  <ul class="ticks">
+    <li>경쟁사 정보의 상당수가 <strong>자사 발표 또는 보도자료</strong>입니다. 합격자 수, 지점 수, 멘토 경쟁률은 독립 검증되지 않았습니다.</li>
+    <li>가격 비교표의 출처가 <strong>경쟁사(에듀셀파) 자체 블로그</strong>이며 2025년 5월 기준입니다. 실제 영업 자료에 인용하려면 각 사 직접 확인이 필요합니다.</li>
+    <li>김엄마는 공개 자료가 가장 적어 <strong>관리형 독서실 사업</strong> 중심으로 파악했습니다. 독학재수 상품의 현재 운영 방식은 별도 확인이 필요합니다.</li>
+    <li>후기 자료는 개인 경험담이며 작성 시점이 오래된 것이 섞여 있습니다. 경향 파악용으로만 사용했습니다.</li>
+    <li>독학재수학원 <strong>시장 규모 통계는 존재하지 않습니다.</strong> 공식 사교육비 통계에 N수생이 빠져 있기 때문입니다. 투자 자료에는 N수생 수 × 객단가 추정으로 대체해야 합니다.</li>
+  </ul>
+</section>
+
+<footer>
+  <p style="max-width:44em">독공자 브랜드 가이드 v1.0 · 2026년 10월 작성. 로고 원본 파일(SVG)은 <code style="font-family:var(--f-mono);font-size:11.5px">brand/logo/</code>에, 심볼 탐색 과정은 <code style="font-family:var(--f-mono);font-size:11.5px">brand/logo/emblem-line/</code>에 있습니다.</p>
+  <p style="max-width:44em;margin-top:10px">가격, 지표 기준, 로드맵 수치는 리서치를 근거로 한 <strong>설계안</strong>입니다. 실행 전 단위경제 검증과 법률 검토(특히 '30분 응답 미달 시 자동 환급' 조항의 약관 적법성)를 거쳐야 합니다.</p>
+</footer>
+
+</main>
+</div>
+</div>
