@@ -6,15 +6,15 @@
 <style>
 /* Layout: 긴 레퍼런스 문서. 데스크톱 좌측 고정 색인 + 단일 본문 컬럼, 모바일 1단. */
 :root{
-  --ink:#0F1626;        /* 감청 */
-  --paper:#F2EEE6;      /* 한지 */
-  --mk-ground:#0F1626;  /* 마크 바탕 — 테마와 무관하게 고정 */
-  --mk-line:#F2EEE6;    /* 마크 선 */
-  --surface:#FBF9F5;    /* 카드 */
-  --jade:#0E5A4E;       /* 청록 — 브랜드 액센트 */
-  --jade-soft:#E2EDE9;
-  --grey:#6B665E;       /* 담묵 */
-  --line:#DCD6CA;
+  --ink:#232323;        /* 먹 */
+  --paper:#FFFFFF;      /* 바탕 */
+  --mk-ink:#232323;     /* 마크 — 가로선과 원 */
+  --mk-sun:#EE6A1E;     /* 마크 — 태양 */
+  --surface:#F6F5F3;    /* 면 */
+  --sun:#EE6A1E;        /* 일출 오렌지 — 브랜드 액센트 */
+  --sun-soft:#FDEEE3;
+  --grey:#6E6E6E;       /* 회 */
+  --line:#E2DFDA;
   --amber:#8A6418;
   --crimson:#9A3327;
   color-scheme:light;
@@ -23,13 +23,13 @@
   --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --ink:#E9E5DC; --paper:#101214; --surface:#181B1E; --jade:#4FBCA6; --jade-soft:#13302B;
-  --grey:#9A958B; --line:#2A2E32; --amber:#D1A445; --crimson:#D97A68;
-  --mk-ground:#F2EEE6; --mk-line:#0F1626; color-scheme:dark;}}
+  --ink:#EDEBE8; --paper:#151515; --surface:#1E1E1E; --sun:#F58A45; --sun-soft:#3A2416;
+  --grey:#9A9A9A; --line:#2E2E2E; --amber:#D1A445; --crimson:#D97A68;
+  --mk-ink:#EDEBE8; --mk-sun:#F58A45; color-scheme:dark;}}
 :root[data-theme="dark"]{
-  --ink:#E9E5DC; --paper:#101214; --surface:#181B1E; --jade:#4FBCA6; --jade-soft:#13302B;
-  --grey:#9A958B; --line:#2A2E32; --amber:#D1A445; --crimson:#D97A68;
-  --mk-ground:#F2EEE6; --mk-line:#0F1626; color-scheme:dark;}
+  --ink:#EDEBE8; --paper:#151515; --surface:#1E1E1E; --sun:#F58A45; --sun-soft:#3A2416;
+  --grey:#9A9A9A; --line:#2E2E2E; --amber:#D1A445; --crimson:#D97A68;
+  --mk-ink:#EDEBE8; --mk-sun:#F58A45; color-scheme:dark;}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-weight:400;
@@ -47,11 +47,11 @@ nav.toc{display:none}
     max-height:100vh;overflow-y:auto}
   nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
   nav.toc .grp{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--jade);margin:18px 0 6px;font-weight:600}
+    color:var(--sun);margin:18px 0 6px;font-weight:600}
   nav.toc .grp:first-child{margin-top:0}
   nav.toc a{display:block;color:var(--grey);text-decoration:none;font-size:12.5px;line-height:1.5;
     padding:3px 0;border-left:2px solid transparent;padding-left:10px}
-  nav.toc a:hover{color:var(--ink);border-left-color:var(--jade)}
+  nav.toc a:hover{color:var(--ink);border-left-color:var(--sun)}
 }
 
 /* ── 머리말 ── */
@@ -62,7 +62,7 @@ header.masthead{padding-block:52px 40px;border-bottom:1px solid var(--line)}
   color:var(--grey);margin-top:9px;padding-left:2px}
 .masthead .lede{font-family:var(--f-display);font-weight:500;font-size:clamp(21px,3.4vw,30px);
   line-height:1.52;margin:30px 0 0;max-width:22em;text-wrap:balance;letter-spacing:-.01em}
-.masthead .lede b{color:var(--jade);font-weight:700}
+.masthead .lede b{color:var(--sun);font-weight:700}
 .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font-family:var(--f-mono);
   font-size:11px;letter-spacing:.04em;color:var(--grey)}
 
@@ -70,7 +70,7 @@ header.masthead{padding-block:52px 40px;border-bottom:1px solid var(--line)}
 section{padding-block:46px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 .eyebrow{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--jade);font-weight:600;margin:0 0 10px}
+  color:var(--sun);font-weight:600;margin:0 0 10px}
 h2{font-family:var(--f-display);font-weight:700;font-size:clamp(22px,3vw,27px);line-height:1.34;
   margin:0 0 6px;letter-spacing:-.015em;text-wrap:balance}
 h3{font-family:var(--f-body);font-weight:600;font-size:16px;margin:32px 0 10px;letter-spacing:-.005em}
@@ -79,8 +79,8 @@ h4{font-family:var(--f-body);font-weight:600;font-size:13.5px;margin:0 0 6px}
 p{margin:0 0 15px;max-width:44em}
 p:last-child{margin-bottom:0}
 strong{font-weight:600}
-em{font-style:normal;color:var(--jade);font-weight:600}
-a{color:var(--jade)}
+em{font-style:normal;color:var(--sun);font-weight:600}
+a{color:var(--sun)}
 hr{border:0;border-top:1px solid var(--line);margin:34px 0}
 
 /* ── 공통 부품 ── */
@@ -88,7 +88,7 @@ hr{border:0;border-top:1px solid var(--line);margin:34px 0}
 .card{background:var(--surface);border:1px solid var(--line);padding:20px;min-width:0}
 .card p{font-size:13.5px;color:var(--grey);margin:0}
 .card p+p{margin-top:9px}
-.num{font-family:var(--f-mono);font-size:10.5px;color:var(--jade);font-weight:600;letter-spacing:.1em;
+.num{font-family:var(--f-mono);font-size:10.5px;color:var(--sun);font-weight:600;letter-spacing:.1em;
   display:block;margin-bottom:9px}
 .stats{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:0 0 26px}
@@ -103,11 +103,11 @@ thead th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-tr
   color:var(--grey);font-weight:600;white-space:nowrap;background:var(--paper)}
 tbody th{font-weight:600;white-space:nowrap}
 tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
-td.us{background:var(--jade-soft);color:var(--ink);font-weight:500}
+td.us{background:var(--sun-soft);color:var(--ink);font-weight:500}
 .money{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
 ul.ticks li{padding-left:20px;position:relative;font-size:14px;max-width:44em}
-ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:var(--jade)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:var(--sun)}
 .note{font-size:12px;color:var(--grey);line-height:1.6;margin-top:14px;max-width:46em}
 .src{font-family:var(--f-mono);font-size:10.5px;color:var(--grey);letter-spacing:.02em}
 
@@ -115,7 +115,7 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
 .diff{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
 .diff>div{background:var(--surface);padding:22px;display:grid;gap:16px;grid-template-columns:1fr;min-width:0}
 @media(min-width:760px){.diff>div{grid-template-columns:34px 1fr 1fr;align-items:start;gap:22px}}
-.diff .idx{font-family:var(--f-mono);font-size:19px;font-weight:600;color:var(--jade);line-height:1}
+.diff .idx{font-family:var(--f-mono);font-size:19px;font-weight:600;color:var(--sun);line-height:1}
 .diff .vs{border-left:2px solid var(--line);padding-left:16px}
 @media(max-width:759px){.diff .vs{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:14px}}
 .diff .vs h4{color:var(--grey)}
@@ -162,7 +162,7 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
 .voice>div{border:1px solid var(--line);background:var(--surface);padding:20px;min-width:0}
 .voice .tag{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
   font-weight:600;margin-bottom:12px;display:block}
-.voice .yes .tag{color:var(--jade)}
+.voice .yes .tag{color:var(--sun)}
 .voice .no .tag{color:var(--crimson)}
 .voice q{display:block;font-size:14px;line-height:1.65;margin-bottom:10px;quotes:"“" "”"}
 .voice .no q{color:var(--grey);text-decoration:line-through;text-decoration-color:var(--line)}
@@ -177,13 +177,13 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
 .bizcard{aspect-ratio:1.75;background:var(--ink);color:var(--paper);padding:20px;display:flex;
   flex-direction:column;justify-content:space-between;max-width:100%}
 .bizcard .nm{font-family:var(--f-display);font-weight:700;font-size:15px}
-.bizcard .rl{font-size:11px;color:#9C958A;margin-top:3px}
-.sign{aspect-ratio:2.4;background:var(--jade);display:flex;align-items:center;justify-content:center;
+.bizcard .rl{font-size:11px;color:#A5A19C;margin-top:3px}
+.sign{aspect-ratio:2.4;background:var(--sun);display:flex;align-items:center;justify-content:center;
   gap:16px;max-width:100%}
 .report{background:var(--surface);padding:18px;font-family:var(--f-mono);font-size:11px;
   line-height:1.9;color:var(--grey)}
 .report b{color:var(--ink)}
-.report .bar{display:inline-block;height:7px;background:var(--jade);vertical-align:middle;margin-left:6px}
+.report .bar{display:inline-block;height:7px;background:var(--sun);vertical-align:middle;margin-left:6px}
 
 .rules{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
 .rule{border:1px solid var(--line);background:var(--surface);padding:16px;font-size:12.5px;
@@ -197,34 +197,11 @@ footer a{color:var(--grey)}
 .srcs{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none;max-width:52em}
 .srcs li{font-size:12px;color:var(--grey);padding-left:18px;position:relative}
 .srcs li::before{content:"—";position:absolute;left:0;color:var(--line)}
-:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
-<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="mk" viewBox="0 0 2048 2048">
-
-<path fill="var(--mk-line)" d="M 991.488 208.347 C 1441.64 190.297 1821.3 540.345 1839.79 990.475 C 1858.27 1440.61 1508.59 1820.61 1058.48 1839.53 C 607.751 1858.48 227.113 1508.22 208.601 1057.47 C 190.088 606.721 540.722 226.423 991.488 208.347 z"/>
-<path fill="var(--mk-line)" d="M 987.486 220.334 C 1431.44 200.05 1807.74 543.565 1827.9 987.521 C 1848.07 1431.48 1504.45 1807.69 1060.49 1827.73 C 616.697 1847.76 240.665 1504.3 220.51 1060.52 C 200.356 616.738 543.709 240.611 987.486 220.334 z"/>
-<path fill="var(--mk-ground)" d="M 992.928 254.448 C 1417.81 237.279 1776.19 567.74 1793.46 992.618 C 1810.73 1417.49 1480.35 1775.95 1055.48 1793.32 C 630.463 1810.7 271.859 1480.19 254.583 1055.17 C 237.307 630.149 567.904 271.623 992.928 254.448 z"/>
-<path fill="var(--mk-line)" d="M 1053.57 752.419 C 1053.91 752.375 1054.25 752.33 1054.59 752.286 C 1216.14 742.918 1353.78 869.759 1366.1 1029.31 C 1367.13 1042.68 1363.95 1053.26 1349.49 1053.81 C 1326.13 1054.71 1302.67 1054.33 1279.29 1054.3 L 1147 1054.26 C 1138.18 1045.03 1129.25 1037.53 1117.29 1032.73 C 1100.25 1025.81 1081.14 1026 1064.25 1033.28 C 1049.07 1039.98 1035.99 1054.79 1030.01 1070.44 C 1024.78 1084.11 1022.95 1113.49 1028.4 1127.19 C 1030.62 1132.76 1038.28 1139.45 1044.15 1140.82 C 1062.1 1144.99 1089.7 1144.89 1106.43 1136.12 C 1121.72 1128.43 1134.61 1113.17 1137.38 1096.02 C 1139.31 1084.1 1137.01 1069.5 1150.82 1063.8 C 1156.5 1061.52 1162.89 1061.76 1168.38 1064.48 C 1189.7 1074.81 1176.59 1113.97 1168.25 1130.03 C 1154.53 1156.5 1133.5 1171.17 1105.34 1179.95 L 1099.95 1191.26 C 1094 1203.01 1084.62 1217.81 1076.95 1228.62 C 1019.6 1309.57 932.411 1364.39 834.602 1380.97 C 819.577 1383.49 787.284 1391.16 776.109 1381.72 C 771.181 1377.56 769.886 1375.06 768.862 1368.83 C 766.921 1357.02 782.197 1346.33 790.523 1336.43 C 832.49 1286.52 848.242 1229.34 824.501 1167.15 C 819.325 1153.59 812.684 1142.35 806.634 1129.41 C 795.274 1105.13 788.851 1078.12 786.539 1051.45 C 779.939 979.669 802.825 908.288 849.934 853.723 C 903.512 790.628 971.521 758.86 1053.57 752.419 z"/>
-<path fill="var(--mk-ground)" d="M 1052.51 792.399 C 1057.98 791.596 1075.2 791.66 1080.5 791.863 C 1129.05 793.796 1176.01 809.684 1215.76 837.623 C 1278.55 881.695 1309.81 941.597 1322.85 1015.31 C 1271.14 1015.35 1215.1 1016.56 1163.87 1015.24 C 1142.45 998.015 1121.73 987.418 1093.59 986.748 C 1065.63 985.903 1038.49 996.187 1018.11 1015.34 C 994.86 1037.56 985.136 1063.62 984.97 1095.22 C 984.837 1120.68 983.914 1140.97 1003.28 1160.7 C 1019.86 1177.6 1039.49 1182 1062.16 1182.26 C 1055.67 1193 1050.73 1201.21 1043.48 1211.54 C 993.397 1281.41 923.335 1320.4 841.099 1339.7 C 880.362 1276.95 888.508 1214.24 860.185 1144.51 C 855.753 1133.21 849.081 1122.76 844.207 1111.7 C 810.39 1035.02 827.457 944.512 880.709 881.258 C 925.449 828.115 984.306 799.019 1052.51 792.399 z"/>
-<path fill="var(--mk-line)" d="M 1048.51 562.439 C 1099.36 559.484 1157 571.139 1205.53 585.906 C 1213.8 588.421 1223.3 592.244 1227.28 600.413 C 1229.6 605.17 1229.48 611.755 1227.38 616.641 C 1215.49 632.803 1199.53 649.494 1185.74 664.752 C 1168.52 682.819 1152.82 704.598 1133.86 720.708 C 1129.33 724.562 1100.21 718.92 1093.14 718.143 C 1070.91 715.72 1048.48 715.455 1026.2 717.354 C 992.286 719.99 959.11 728.605 928.202 742.801 C 855.782 775.92 805.761 831.304 778.154 905.5 C 772.531 922.725 771.446 946.434 748.02 947.277 C 735.524 947.342 722.828 947.432 710.32 947.125 C 643.326 945.478 615.943 962.351 638.194 882.356 C 656.26 815.726 690.152 754.445 736.987 703.726 C 820.546 613.003 926.071 567.527 1048.51 562.439 z"/>
-<path fill="var(--mk-ground)" d="M 1053.88 602.443 C 1094.53 600.936 1135.17 605.628 1174.41 616.357 L 1118.93 678.967 C 1060.07 669.863 1005.67 672.255 948.58 690.503 C 864.215 717.554 794.167 777.213 754.033 856.197 C 746.835 870.363 739.472 889.901 735.081 904.989 C 715.378 904.898 695.674 904.91 675.971 905.027 C 690.787 840.635 721.918 781.137 766.374 732.254 C 841.974 649.562 942.863 607.274 1053.88 602.443 z"/>
-<path fill="var(--mk-line)" d="M 1341.42 1065.19 C 1342.76 1065.03 1344.11 1064.91 1345.46 1064.84 C 1357.9 1064.16 1365.01 1069.22 1368.44 1081.1 C 1381.39 1125.93 1395.99 1170.89 1406.53 1216.27 C 1407.16 1221.77 1402.71 1231.63 1398.62 1234.67 C 1384.47 1245.21 1352.84 1241.29 1335.1 1241.1 L 1335.23 1380.2 C 1335.25 1402.53 1335.78 1425 1334.76 1447.3 C 1334.02 1463.57 1320.39 1466.08 1306.98 1466.17 C 1197.23 1466.89 1106.1 1428.47 1029.79 1349.76 C 1022.27 1341.39 1009.8 1329.57 1010.65 1317.97 C 1011.08 1312.71 1013.66 1307.86 1017.78 1304.56 C 1029.76 1294.8 1041.4 1302.84 1049.67 1312.62 C 1114.43 1389.13 1197.5 1421.56 1295.31 1429.08 L 1295.35 1289.67 C 1295.37 1268.31 1294.82 1245.94 1295.51 1224.67 C 1296.31 1199.84 1344.27 1206.78 1362.14 1206.8 C 1354.94 1181.95 1347.57 1157.15 1340.04 1132.4 C 1335.94 1118.85 1331.59 1105.29 1328.03 1091.6 C 1324.33 1077.35 1329.65 1071.67 1341.42 1065.19 z"/>
-</symbol><symbol id="em" viewBox="0 0 2048 2048">
-
-<path fill="var(--mk-ground)" d="M 991.005 301.025 C 1390.4 282.466 1729.23 591.16 1747.85 990.55 C 1766.47 1389.94 1457.83 1728.82 1058.44 1747.5 C 658.966 1766.18 320 1457.46 301.377 1057.98 C 282.754 658.508 591.528 319.589 991.005 301.025 z"/>
-<path fill="var(--mk-line)" d="M 1011.19 338.244 C 1389.97 330.863 1703.06 631.863 1710.59 1010.64 C 1718.12 1389.42 1417.24 1702.63 1038.47 1710.31 C 659.479 1718 346.058 1416.91 338.522 1037.92 C 330.987 658.931 632.192 345.629 1011.19 338.244 z"/>
-<path fill="var(--mk-ground)" d="M 993.378 346.14 C 1367.75 328.923 1685.25 618.355 1702.65 992.721 C 1720.06 1367.09 1430.78 1684.73 1056.43 1702.32 C 681.804 1719.92 363.889 1430.4 346.472 1055.77 C 329.056 681.138 618.738 363.368 993.378 346.14 z"/>
-<path fill="var(--mk-line)" d="M 1164.74 659.57 C 1105.02 646.748 1058.17 644.565 999.252 658.83 C 799.553 707.176 684.99 922.938 761.002 1114.77 C 768.932 1137.97 782.978 1162.26 788.803 1185.92 C 806.096 1256.17 787.062 1336.33 750.254 1397.41 C 740.23 1414.05 694.962 1479.8 677.884 1480.43 C 660.722 1474.42 678.13 1455.38 683.197 1445.83 C 714.66 1386.55 726.131 1322.44 715.814 1256.02 C 705.939 1192.44 669.472 1145.17 642.214 1088.71 C 577.238 954.39 596.878 796.05 675.697 671.969 C 745.013 564.936 853.473 489.29 977.862 461.22 C 1082.05 438.123 1195.42 446.342 1292.41 495.561 C 1297.23 498.007 1302.14 503.746 1297.74 510.233 C 1284.58 521.975 1270.07 532.245 1256.96 544.274 C 1206.86 590.222 1183.23 646.573 1172.67 712.469 C 1212.9 728.228 1222.24 733.552 1250.36 765.119 L 1286.62 806.119 C 1317 840.574 1347.64 875.194 1377.83 909.845 C 1380.88 913.588 1383.73 917.729 1385.76 922.098 C 1386.66 924.043 1386.41 925.271 1385.39 927.06 C 1380.7 935.268 1361.55 937.056 1353.2 938.616 C 1362.02 965.798 1366.37 995.086 1376.62 1021.73 C 1381.07 1033.29 1386.83 1045.32 1391.91 1056.65 C 1403.35 1082.38 1415.08 1107.98 1427.1 1133.44 C 1445.01 1171.41 1454.11 1175.6 1408.6 1188.75 C 1402.54 1190.46 1396.47 1192.12 1390.38 1193.71 C 1389.69 1199.01 1389.07 1209.78 1387.24 1213.69 C 1382.45 1217.08 1376.15 1215.28 1372.87 1210.75 C 1367.57 1203.41 1370.92 1181.38 1379.31 1177.66 C 1391.62 1172.2 1407.82 1169.57 1420.99 1165.02 C 1405.64 1132.68 1390.68 1100.17 1376.09 1067.48 C 1372.06 1058.38 1367.92 1049.25 1364.04 1040.09 C 1351.13 1009.65 1343.31 974.803 1335.5 942.708 C 1268.2 957.082 1171.81 993.393 1126.74 1046.79 C 1147.55 1092.8 1144.39 1150.82 1104.92 1186.74 C 1097.85 1193.18 1090.77 1197.12 1082.47 1201.85 C 1097.16 1262.14 1126.09 1308.49 1180.17 1341.47 C 1194.18 1350.11 1209.01 1357.35 1224.44 1363.1 C 1256.02 1374.9 1299.28 1383.57 1333.06 1378.59 C 1352.42 1375.73 1361.11 1355.41 1354.29 1338.35 C 1343.4 1311.11 1335.55 1288.69 1365.17 1268.59 C 1359.32 1264.57 1351.57 1262.01 1349.81 1255.28 C 1351.04 1242.36 1373.01 1240.76 1375.41 1232.06 C 1372.61 1228.96 1369.44 1229.23 1364.91 1228.73 L 1362.85 1224.69 C 1371.78 1222.68 1388.13 1217.35 1395.24 1221.12 C 1396.81 1223.33 1397.96 1224.73 1397.3 1227.68 C 1394.38 1240.79 1387.53 1247.66 1376.36 1253.29 C 1394.51 1267.61 1388.13 1276.01 1371.47 1287.26 C 1356.76 1297.19 1365.25 1314.6 1370.41 1327.21 C 1387.44 1371.41 1359.78 1399.43 1316.13 1398.66 C 1290.9 1398.22 1273.29 1395.19 1249.06 1390.31 C 1191.69 1411.99 1191.65 1504.54 1202.29 1553.74 C 1204.43 1563.63 1206.98 1573.53 1209.15 1583.42 C 1210.88 1591.3 1209.11 1594.43 1202.14 1597.91 C 1187.85 1598.52 1145.7 1571.23 1131.77 1563.12 C 1064.43 1523.96 998.031 1476.6 918.894 1465.66 C 854.736 1456.36 789.617 1471.59 739.246 1513.61 C 731.804 1519.81 725.086 1526.78 716.255 1519.43 C 707.963 1498.69 783.034 1464.58 797.399 1459.46 C 913.938 1417.93 1008.73 1468.16 1106.13 1526.39 C 1133.27 1542.66 1160.55 1558.68 1187.96 1574.48 C 1171.04 1509.97 1169.7 1429.96 1224.49 1382.95 C 1159.62 1358.64 1109.31 1319.1 1079.98 1254.99 C 1073.09 1239.75 1067.9 1223.8 1064.49 1207.44 C 1028.3 1211.82 1009.86 1204.95 979.226 1186.02 C 1005.07 1309.91 953.178 1390.47 834.13 1422.86 C 824.853 1425.39 813.425 1430.61 804.759 1432.88 C 792.047 1436.2 771.082 1454.87 759.451 1450.19 C 749.259 1440.53 767.194 1421.89 773.032 1412.58 C 782.212 1397.89 790.649 1382.75 798.313 1367.22 C 817.54 1328.31 833.599 1282.13 839.006 1238.41 C 841.256 1220.22 837.755 1217.31 830.57 1201.09 C 814.728 1165.12 796.245 1130.07 781.703 1093.56 C 771.934 1069.03 767.991 1043.56 766.091 1017.45 C 759.486 926.74 797.671 842.238 863.646 781.161 C 925.349 724.515 1006.87 694.439 1090.58 697.439 C 1113.63 698.371 1132.7 701.481 1154.82 706.971 C 1157.7 689.452 1159.83 676.74 1164.74 659.57 z"/>
-<path fill="var(--mk-ground)" d="M 1077.21 467.419 C 1144.59 465.778 1211.48 479.066 1273.11 506.33 C 1222.7 543.948 1192.9 583.736 1170.32 642.057 C 913.512 576.786 674.094 799.846 725.303 1060.22 C 734.623 1107.6 753.004 1143.05 769.64 1187.43 C 782.106 1220.69 775.894 1271.48 767.821 1305.99 C 759.788 1340.63 739.976 1383.06 718.863 1411.67 C 746.043 1336.23 745.79 1258.09 713.939 1183.84 C 708.003 1170 690.961 1139.25 682.877 1125.06 C 647.833 1063.55 626.157 1007.51 622.857 935.724 C 617.592 821.186 660.007 708.187 736.68 623.343 C 810.243 541.852 909.887 488.52 1018.5 472.507 C 1038.69 469.445 1056.81 468.455 1077.21 467.419 z"/>
-<path fill="var(--mk-ground)" d="M 853.738 1205.54 C 845.769 1188.9 838.597 1171.93 830.718 1155.38 C 812.578 1117.28 796.244 1088.71 788.809 1046.16 C 775.898 974.837 792.459 901.327 834.705 842.43 C 880.293 777.605 949.868 733.655 1027.99 720.334 C 1092.42 709.258 1163.33 717.784 1217.66 756.152 L 1013.87 962.645 L 1010.78 965.691 L 1010.99 966.84 C 1013.44 966.576 1013.52 966.695 1015.72 965.668 L 1037.04 958.463 C 1056.45 967.721 1078.59 976.66 1098.54 984.968 L 1111.16 971.597 C 1091.59 962.361 1071.89 953.394 1052.06 944.698 C 1060.47 936.385 1068.84 927.73 1077.16 919.305 C 1098.46 927.859 1119.62 936.733 1140.64 945.923 L 1153.29 932.018 C 1132.75 924.183 1111.44 914.224 1090.62 905.922 C 1099.83 896.76 1108.96 887.52 1118.01 878.206 C 1141.89 887.67 1167.17 896.782 1191.29 905.884 C 1196.1 901.725 1201.92 897.376 1206.98 893.422 C 1183.42 883.84 1155.47 874.262 1131.39 865.342 C 1138.68 857.722 1147.04 849.913 1154.65 842.523 C 1192.83 849.64 1232.98 853.583 1271.55 859.941 C 1280.55 856.039 1289.31 851.606 1297.78 846.664 L 1304.76 854.606 C 1206.2 896.103 1152.01 936.488 1077.38 1013.3 C 1070.25 1006.72 1061.06 1001.29 1052.01 997.821 C 1031.69 990.089 1009.13 990.712 989.258 999.555 C 966.222 1009.83 949.331 1028.93 940.551 1052.43 C 930.533 1079.38 931.492 1109.19 943.221 1135.44 C 921.745 1172.26 891.335 1188.07 853.738 1205.54 z"/>
-<path fill="var(--mk-ground)" d="M 1017.9 1011.38 C 1045.52 1009.29 1071.51 1024.65 1082.99 1049.85 C 1086.42 1057.56 1086.44 1072.26 1092.98 1077.04 C 1101.44 1083.24 1109.52 1068.24 1113.07 1062.44 C 1113.43 1063.4 1113.78 1064.35 1114.13 1065.31 C 1130.55 1110.47 1117 1169.24 1067.9 1186.89 C 986.124 1211.66 919.689 1104.01 969.747 1038.29 C 982.115 1022.05 997.833 1014.02 1017.9 1011.38 z"/>
-<path fill="var(--mk-ground)" d="M 949.567 1153.63 C 951.382 1155.35 952.619 1159.02 953.32 1161.35 C 967.867 1209.71 975.333 1271.7 951.292 1317.8 C 918.834 1380.05 863.914 1393.67 804.312 1413.93 C 799.546 1415.77 794.793 1417.65 790.052 1419.56 C 827.082 1367.46 854.649 1285.58 859.4 1221.95 C 896.431 1207.94 927.44 1186.7 949.567 1153.63 z"/>
-<path fill="var(--mk-ground)" d="M 1314.78 869.953 C 1318.46 872.774 1353 912.859 1358.84 919.508 C 1342.15 923.986 1323.38 926.327 1305.76 931.324 C 1237.46 950.687 1167.09 977.964 1117.01 1029.84 C 1111.45 1036.04 1107.26 1041 1102.2 1047.58 C 1097.89 1037.83 1095.04 1032.86 1089 1024.23 C 1169.94 945.934 1211.02 913.156 1314.78 869.953 z"/>
-<path fill="var(--mk-ground)" d="M 1225.11 772.574 C 1227.54 773.236 1288.69 837.127 1296.14 844.581 C 1280 842.816 1263.87 840.904 1247.77 838.843 L 1169.35 827.684 C 1187.67 810.637 1206.97 790.353 1225.11 772.574 z"/>
-<path fill="var(--mk-line)" d="M 1362.85 1224.69 L 1364.91 1228.73 C 1363.52 1228.47 1357.27 1227.73 1356.51 1226.49 C 1357.29 1225.05 1361.32 1224.88 1362.85 1224.69 z"/>
-</symbol></svg>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="mk" viewBox="0 0 200 200"><path fill="var(--mk-sun)" d="M47.0,68.30000000000001 a53.0,53.0 0 0,1 106.0,0 Z"/><rect x="6.0" y="68.30000000000001" width="188.0" height="18.6" fill="var(--mk-ink)"/><path fill="var(--mk-ink)" fill-rule="evenodd" d="M27.700000000000003,135.4 a72.3,50.6 0 1,0 144.6,0 a72.3,50.6 0 1,0 -144.6,0 Z M65.5,135.4 a34.5,35.5 0 1,0 69.0,0 a34.5,35.5 0 1,0 -69.0,0 Z"/></symbol><symbol id="lt" viewBox="0 0 355.1 120.0"><g transform="translate(-5.06,107.21) scale(0.13319)"><path fill="var(--mk-ink)" d="M36.0 -396.0H885.0V-270.0H36.0ZM379.0 -544.0H540.0V-360.0H379.0ZM129.0 -222.0H787.0V95.0H626.0V-96.0H129.0ZM137.0 -589.0H795.0V-462.0H137.0ZM137.0 -806.0H787.0V-680.0H297.0V-520.0H137.0Z"/><g transform="translate(900.0,0)"><path fill="var(--mk-sun)" d="M309.0,-435 a145.0,145.0 0 0,1 290.0,0 Z"/><path fill="var(--mk-ink)" d="M130.0 -805.0H719.0V-679.0H130.0Z"/><path fill="var(--mk-ink)" d="M625.0 -805.0H786.0V-729.0Q786.0 -674.0 783.0 -612.0Q780.0 -550.0 760.0 -477.0L600.0 -493.0Q619.0 -565.0 622.0 -620.0Q625.0 -675.0 625.0 -729.0Z"/><path fill="var(--mk-ink)" d="M38.0 -435.0H882.0V-308.0H38.0Z"/><path fill="var(--mk-ink)" fill-rule="evenodd" d="M454.0 -264.0Q556.0 -264.0 631.5 -242.5Q707.0 -221.0 748.5 -180.5Q790.0 -140.0 790.0 -84.0Q790.0 -28.0 748.5 12.5Q707.0 53.0 631.5 74.5Q556.0 96.0 454.0 96.0Q352.0 96.0 276.5 74.5Q201.0 53.0 159.5 12.5Q118.0 -28.0 118.0 -84.0Q118.0 -140.0 159.5 -180.5Q201.0 -221.0 276.5 -242.5Q352.0 -264.0 454.0 -264.0Z M454.0 -144.0Q396.0 -144.0 357.0 -138.0Q318.0 -132.0 298.5 -118.5Q279.0 -105.0 279.0 -84.0Q279.0 -63.0 298.5 -50.0Q318.0 -37.0 357.0 -30.5Q396.0 -24.0 454.0 -24.0Q512.0 -24.0 551.0 -30.5Q590.0 -37.0 610.0 -50.0Q630.0 -63.0 630.0 -84.0Q630.0 -105.0 610.0 -118.5Q590.0 -132.0 551.0 -138.0Q512.0 -144.0 454.0 -144.0Z"/></g><path fill="var(--mk-ink)" d="M2034.0 -688.0H2161.0V-608.0Q2161.0 -526.0 2146.5 -445.0Q2132.0 -364.0 2101.5 -293.0Q2071.0 -222.0 2021.5 -166.5Q1972.0 -111.0 1902.0 -79.0L1812.0 -206.0Q1874.0 -235.0 1916.5 -280.0Q1959.0 -325.0 1985.0 -379.5Q2011.0 -434.0 2022.5 -492.5Q2034.0 -551.0 2034.0 -608.0ZM2069.0 -688.0H2196.0V-608.0Q2196.0 -556.0 2207.5 -501.5Q2219.0 -447.0 2244.5 -395.0Q2270.0 -343.0 2312.5 -300.5Q2355.0 -258.0 2416.0 -230.0L2328.0 -103.0Q2258.0 -134.0 2209.0 -187.5Q2160.0 -241.0 2129.0 -309.0Q2098.0 -377.0 2083.5 -453.5Q2069.0 -530.0 2069.0 -608.0ZM1850.0 -757.0H2370.0V-625.0H1850.0ZM2416.0 -843.0H2578.0V95.0H2416.0ZM2543.0 -497.0H2704.0V-365.0H2543.0Z"/></g></symbol></svg>
 <div class="wrap">
 <div class="shell">
 
@@ -256,7 +233,7 @@ footer a{color:var(--grey)}
 
 <header class="masthead">
   <div class="lock">
-    <svg class="mark" width="54" height="54" viewBox="0 0 2048 2048" aria-label="독공자 심볼"><use href="#mk"/></svg>
+    <svg class="mark" width="54" height="54" viewBox="0 0 200 200" aria-label="독공자 심볼"><use href="#mk"/></svg>
     <div>
       <div class="wm">독공자</div>
       <div class="en">DOKGONGJA</div>
@@ -412,9 +389,9 @@ footer a{color:var(--grey)}
 
   <div class="cards">
     <div class="card"><span class="num">포지셔닝 문장</span>
-      <p style="font-family:var(--f-display);font-size:17px;color:var(--ink);line-height:1.6">독공자는 관리를 파는 학원이 아니라, <strong style="color:var(--jade)">관리가 필요 없게 만드는</strong> 학원입니다.</p></div>
+      <p style="font-family:var(--f-display);font-size:17px;color:var(--ink);line-height:1.6">독공자는 관리를 파는 학원이 아니라, <strong style="color:var(--sun)">관리가 필요 없게 만드는</strong> 학원입니다.</p></div>
     <div class="card"><span class="num">우리가 싸우는 적</span>
-      <p style="font-family:var(--f-display);font-size:17px;color:var(--ink);line-height:1.6">경쟁사가 아니라 <strong style="color:var(--jade)">관리 의존</strong>입니다. 학원을 나가는 순간 사라지는 공부 습관.</p></div>
+      <p style="font-family:var(--f-display);font-size:17px;color:var(--ink);line-height:1.6">경쟁사가 아니라 <strong style="color:var(--sun)">관리 의존</strong>입니다. 학원을 나가는 순간 사라지는 공부 습관.</p></div>
   </div>
 
   <h3>이름의 근거</h3>
@@ -622,143 +599,118 @@ footer a{color:var(--grey)}
 <section id="logo">
   <p class="eyebrow">12 · Logo</p>
   <h2>로고</h2>
-  <p class="sub">투구를 쓴 아테나의 옆얼굴을, 굵기가 일정한 한 겹의 선으로만 그렸습니다. 지혜로 싸우는 사람의 얼굴입니다.</p>
+  <p class="sub">한글 <strong>공</strong>을 단순화한 일출 형태입니다. 태양과 가로선과 원, 세 요소가 브랜드 철학을 그대로 담습니다.</p>
 
   <div class="specimen">
-    <div class="lock-h" style="--g:26px">
-      <svg class="mark" width="76" height="76" viewBox="0 0 2048 2048" aria-label="독공자 심볼"><use href="#mk"/></svg>
+    <div class="lock-h" style="--g:28px">
+      <svg class="mark" width="92" height="92" viewBox="0 0 200 200" aria-label="독공자 심벌"><use href="#mk"/></svg>
       <div>
-        <div class="wm-s" style="font-size:52px">독공자</div>
-        <div class="en-s" style="font-size:11px;margin-top:11px;padding-left:2px">DOKGONGJA</div>
+        <svg width="222" height="75" viewBox="0 0 355.1 120" aria-label="독공자"><use href="#lt"/></svg>
+        <div class="en-s" style="font-size:11px;margin-top:10px;letter-spacing:.34em">단 하나의 관리</div>
       </div>
     </div>
   </div>
-  <p class="cap">기본 조합형 — logo-primary-en.svg</p>
+  <p class="cap">기본 가로 조합형 — lockup-horizontal-tagline.svg</p>
 
-  <h3>심볼의 의미</h3>
+  <h3>심벌의 의미</h3>
   <div class="cards">
-    <div class="card"><span class="num">투구</span>
-      <h4>지혜로 싸운다</h4><p>아테나의 투구는 힘이 아니라 전략의 상징입니다. 독공자는 더 오래 앉아 있는 법이 아니라 <strong>혼자 싸우는 법</strong>을 가르칩니다.</p></div>
-    <div class="card"><span class="num">옆얼굴</span>
-      <h4>앞을 본다</h4><p>보는 사람을 응시하지 않습니다. 시선이 향한 곳은 카메라가 아니라 <strong>학생 자신의 목표</strong>입니다.</p></div>
-    <div class="card"><span class="num">한 겹의 선</span>
-      <h4>꾸미지 않는다</h4><p>굵기가 일정한 선 하나로만 그렸고 면을 채우지 않습니다. 과장하지 않는다는 브랜드의 태도를 형태로 지킵니다.</p></div>
-    <div class="card"><span class="num">닫힌 원</span>
-      <h4>1년이라는 기한</h4><p>원은 유한한 기간입니다. 이 안에서 끝낸다는 약속이자, 끝나면 나가야 한다는 뜻이기도 합니다.</p></div>
+    <div class="card"><span class="num">오렌지 반원</span>
+      <h4>목표</h4><p>떠오르는 태양입니다. 스스로 세운 목표와, 거기에 닿겠다는 의지를 뜻합니다. 열정과 성장의 색입니다.</p></div>
+    <div class="card"><span class="num">검은 가로선</span>
+      <h4>규율</h4><p>흔들리지 않는 학습 원칙입니다. 시간 관리, 생활 관리, 학습 관리. 스스로를 통제하는 힘입니다.</p></div>
+    <div class="card"><span class="num">아래 원</span>
+      <h4>몰입</h4><p>방해 없이 자기 공부에 잠긴 상태입니다. 닫힌 원은 집중과 지속을 뜻합니다.</p></div>
+    <div class="card"><span class="num">읽는 순서</span>
+      <h4>위에서 아래로</h4><p>목표 → 규율 → 몰입 → 성취. 심벌은 위에서 아래로 읽습니다. 순서를 바꾸면 의미가 사라집니다.</p></div>
   </div>
-  <p class="note">상담에서는 <strong>"지혜의 여신 아테나"</strong>로 설명합니다. "그리스 병사"나 "스파르타"라고 소개하지 마십시오. 경쟁 브랜드의 언어이며, 이 브랜드가 정면으로 반대하는 개념입니다.</p>
+  <p class="note">상담에서는 <strong>"한글 공을 단순화한 일출"</strong>로 설명합니다.
+    "해 뜨는 그림"이나 "ㅎ"이라고 소개하지 마십시오. 글자에서 출발했다는 점이 이 마크의 근거입니다.</p>
 
-  <h3>2단 체계 — 심볼과 엠블럼</h3>
-  <p>같은 얼굴을 획 수만 달리해 두 벌 운용합니다. 작은 곳에서는 뭉치지 않고, 큰 곳에서는 빈약해지지 않게 하기 위한 장치입니다.</p>
+  <blockquote style="margin:26px 0 0;padding:24px;border-left:3px solid var(--sun);background:var(--surface)">
+    <p style="font-family:var(--f-display);font-size:19px;line-height:1.6;margin:0">스스로를 통제하는 자, 결국 목표에 도달한다.</p>
+    <p style="font-size:13.5px;color:var(--grey);margin:10px 0 0">위쪽의 태양은 목표를, 가운데 직선은 규율을, 아래 원은 몰입을 뜻합니다.</p>
+  </blockquote>
+
+  <h3>심벌과 로고타입</h3>
+  <p>심벌은 단독으로 쓰고, 로고타입은 이름을 읽혀야 하는 자리에 씁니다.
+    로고타입의 <strong>공</strong>에도 같은 태양이 올라가 있어 둘은 한 벌입니다.</p>
   <div class="grid2">
     <div>
       <div class="specimen" style="min-height:150px">
-        <svg width="104" height="104" viewBox="0 0 2048 2048" aria-label="독공자 심볼"><use href="#mk"/></svg>
+        <svg width="104" height="104" viewBox="0 0 200 200" aria-label="독공자 심벌"><use href="#mk"/></svg>
       </div>
-      <p class="cap">심볼 — 기본. 24px까지 버팁니다</p>
+      <p class="cap">심벌 — 앱 아이콘·파비콘·굿즈. 24px까지</p>
     </div>
     <div>
       <div class="specimen" style="min-height:150px">
-        <svg width="104" height="104" viewBox="0 0 2048 2048" aria-label="독공자 엠블럼"><use href="#em"/></svg>
+        <svg width="236" height="80" viewBox="0 0 355.1 120" aria-label="독공자"><use href="#lt"/></svg>
       </div>
-      <p class="cap">엠블럼 — 40mm 이상에서만</p>
+      <p class="cap">로고타입 — 이름을 읽혀야 하는 자리</p>
     </div>
-  </div>
-  <div class="scroll" style="margin-top:14px">
-    <table>
-      <thead><tr><th>구분</th><th>쓰는 곳</th><th>최소 크기</th></tr></thead>
-      <tbody>
-        <tr><th>심볼</th><td>앱 아이콘, 파비콘, SNS 프로필, 명함, 본문 로고, 조합형 전체</td><td class="money">24px / 8mm</td></tr>
-        <tr><th>엠블럼</th><td>간판, 현수막, 출입문 사인, 수료증, 굿즈, 표지</td><td class="money">120px / 40mm</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">두 마크를 한 화면에 동시에 쓰지 않습니다. 엠블럼은 심볼의 상위 버전이지 별도의 로고가 아닙니다.</p>
-
-  <h3>조합 변형</h3>
-  <div class="grid2">
     <div>
-      <div class="specimen" style="min-height:130px">
+      <div class="specimen" style="min-height:150px">
         <div class="lock-v">
-          <svg class="mark" width="58" height="58" viewBox="0 0 2048 2048" aria-hidden="true"><use href="#mk"/></svg>
+          <svg width="66" height="66" viewBox="0 0 200 200" aria-hidden="true"><use href="#mk"/></svg>
           <div>
-            <div class="wm-s" style="font-size:28px">독공자</div>
-            <div class="en-s" style="font-size:8px;margin-top:8px">DOKGONGJA</div>
+            <svg width="150" height="51" viewBox="0 0 355.1 120" aria-hidden="true"><use href="#lt"/></svg>
+            <div class="en-s" style="font-size:8.5px;margin-top:9px;letter-spacing:.34em">단 하나의 관리</div>
           </div>
         </div>
       </div>
       <p class="cap">세로 조합형 — 간판·현수막·SNS 프로필</p>
     </div>
     <div>
-      <div class="specimen dark" style="min-height:130px">
-        <div class="lock-h" style="--g:20px">
-          <svg class="mark" width="52" height="52" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#F2EEE6;--mk-line:#0F1626"><use href="#mk"/></svg>
-          <div>
-            <div class="wm-s" style="font-size:34px;color:#F2EEE6">독공자</div>
-            <div class="en-s" style="font-size:8px;margin-top:8px;color:#9C958A">DOKGONGJA</div>
-          </div>
+      <div class="specimen dark" style="min-height:150px">
+        <div class="lock-h" style="--g:22px;--mk-ink:#F6F5F3">
+          <svg width="62" height="62" viewBox="0 0 200 200" aria-hidden="true"><use href="#mk"/></svg>
+          <svg width="150" height="51" viewBox="0 0 355.1 120" aria-hidden="true" style="--mk-ink:#F6F5F3"><use href="#lt"/></svg>
         </div>
       </div>
-      <p class="cap">반전형 — 어두운 배경 전용. 바탕과 선을 맞바꿉니다</p>
-    </div>
-    <div>
-      <div class="specimen" style="min-height:130px">
-        <svg class="mark" width="74" height="74" viewBox="0 0 2048 2048" aria-hidden="true"><use href="#mk"/></svg>
-      </div>
-      <p class="cap">심볼 단독 — 앱 아이콘·파비콘·굿즈</p>
-    </div>
-    <div>
-      <div class="specimen" style="min-height:130px">
-        <div class="lock-h" style="--g:20px">
-          <svg class="mark" width="52" height="52" viewBox="0 0 2048 2048" aria-hidden="true"><use href="#mk"/></svg>
-          <div class="wm-s" style="font-size:34px">독공자</div>
-        </div>
-      </div>
-      <p class="cap">국문 단독형 — 영문이 불필요한 국내 인쇄물</p>
+      <p class="cap">반전형 — 어두운 배경에서 먹을 흰색으로. 태양은 그대로</p>
     </div>
   </div>
 
   <h3>사용 규칙</h3>
   <div class="rules">
-    <div class="rule"><b>여백</b>심볼 지름의 <strong>1/3</strong> 이상을 로고 사방에 비웁니다. 다른 요소를 넣지 않습니다.</div>
-    <div class="rule"><b>최소 크기</b>심볼 <strong>24px / 8mm</strong>, 엠블럼 <strong>120px / 40mm</strong>, 조합형 가로 <strong>120px / 30mm</strong>.</div>
-    <div class="rule"><b>배경</b>한지 위에는 기본형, 감청·청록 위에는 반전형을 씁니다. 사진 위에서는 단색 판을 깔아야 합니다.</div>
-    <div class="rule bad"><b>금지 — 선 굵기 변경</b>확대·축소는 비율 그대로만 합니다. 선만 두껍게 하거나 얇게 만들지 않습니다.</div>
-    <div class="rule bad"><b>금지 — 면 채우기</b>선으로 그린 얼굴을 실루엣으로 메우지 않습니다. 비어 있음이 이 마크의 성격입니다.</div>
-    <div class="rule bad"><b>금지 — 원 제거</b>투구만 떼어내 쓰지 않습니다. 원이 없으면 '기한 안에 끝낸다'는 의미가 사라집니다.</div>
-    <div class="rule bad"><b>금지 — 색 교체</b>감청·한지·청록 외의 색을 쓰지 않습니다. 특히 빨강과 주황은 경쟁 브랜드의 영역입니다.</div>
-    <div class="rule bad"><b>금지 — 효과</b>그림자, 그라데이션, 외곽선, 기울임, 회전을 적용하지 않습니다.</div>
-    <div class="rule bad"><b>금지 — 재조판</b>워드마크를 다른 서체로 다시 쓰지 않습니다. 제공된 아웃라인 파일만 씁니다.</div>
-    <div class="rule bad"><b>금지 — 혼용</b>심볼과 엠블럼을 같은 화면에 함께 쓰지 않습니다.</div>
+    <div class="rule"><b>여백</b>심벌 가로폭의 <strong>1/4</strong> 이상을 로고 사방에 비웁니다.</div>
+    <div class="rule"><b>최소 크기</b>심벌 <strong>24px / 8mm</strong>, 로고타입 가로 <strong>90px / 25mm</strong>.</div>
+    <div class="rule"><b>배경</b>흰 바탕이 기본입니다. 어두운 배경에서는 먹을 흰색으로 바꾸고 <strong>태양은 오렌지 그대로</strong> 둡니다.</div>
+    <div class="rule bad"><b>금지 — 순서 변경</b>태양을 가로선 아래로 내리거나 원을 위로 올리지 않습니다. 의미가 뒤집힙니다.</div>
+    <div class="rule bad"><b>금지 — 태양 색 교체</b>반원을 먹이나 다른 색으로 칠하지 않습니다. 목표를 지우는 것과 같습니다.</div>
+    <div class="rule bad"><b>금지 — 원 채우기</b>아래 원의 속을 메우지 않습니다. 비어 있어야 몰입이 읽힙니다.</div>
+    <div class="rule bad"><b>금지 — 비율 변경</b>가로세로를 따로 늘이지 않습니다. 확대·축소는 비율 그대로.</div>
+    <div class="rule bad"><b>금지 — 효과</b>그림자, 그라데이션, 외곽선, 기울임, 회전을 넣지 않습니다.</div>
+    <div class="rule bad"><b>금지 — 재조판</b>로고타입을 다른 서체로 다시 쓰지 않습니다. 제공된 파일만 씁니다.</div>
   </div>
 </section>
+
 
 <section id="color">
   <p class="eyebrow">13 · Color</p>
   <h2>컬러</h2>
-  <p class="sub">경쟁 브랜드는 대부분 빨강과 주황에 몰려 있습니다. 독공자는 감청과 청록으로 갑니다.</p>
+  <p class="sub">먹과 흰 바탕으로 지면을 비우고, 오렌지는 태양 하나에만 씁니다.</p>
 
   <div class="swatches">
-    <div class="sw"><div class="chip" style="background:#0F1626"></div>
-      <div class="info"><b>감청 Navy</b><code>#0F1626</code><span>로고 바탕·본문. 검정 대신 깊은 청색</span></div></div>
-    <div class="sw"><div class="chip" style="background:#0E5A4E"></div>
-      <div class="info"><b>청록 Jade</b><code>#0E5A4E</code><span>브랜드 액센트. 강조·CTA·상승 지표</span></div></div>
-    <div class="sw"><div class="chip" style="background:#3FA894"></div>
-      <div class="info"><b>밝은 청록</b><code>#3FA894</code><span>어두운 배경 전용. 밝은 면에는 쓰지 않음</span></div></div>
-    <div class="sw"><div class="chip" style="background:#F2EEE6;border-bottom:1px solid var(--line)"></div>
-      <div class="info"><b>한지 Paper</b><code>#F2EEE6</code><span>기본 배경. 순백 대신 미색</span></div></div>
-    <div class="sw"><div class="chip" style="background:#6B665E"></div>
-      <div class="info"><b>담묵 Grey</b><code>#6B665E</code><span>보조 텍스트·캡션. 중성회색 아님</span></div></div>
-    <div class="sw"><div class="chip" style="background:#8A6418"></div>
-      <div class="info"><b>주의 Amber</b><code>#8A6418</code><span>복구 프로토콜 발동 상태 표시</span></div></div>
+    <div class="sw"><div class="chip" style="background:#232323"></div>
+      <div class="info"><b>먹 Ink</b><code>#232323</code><span>본문·로고의 가로선과 원. 순흑보다 살짝 묽은 먹</span></div></div>
+    <div class="sw"><div class="chip" style="background:#EE6A1E"></div>
+      <div class="info"><b>일출 오렌지</b><code>#EE6A1E</code><span>태양. 그리고 강조 한 곳</span></div></div>
+    <div class="sw"><div class="chip" style="background:#F58A45"></div>
+      <div class="info"><b>밝은 오렌지</b><code>#F58A45</code><span>어두운 배경 전용. 흰 바탕에는 쓰지 않음</span></div></div>
+    <div class="sw"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid var(--line)"></div>
+      <div class="info"><b>바탕 White</b><code>#FFFFFF</code><span>기본 배경. 지면은 비워 둡니다</span></div></div>
+    <div class="sw"><div class="chip" style="background:#F6F5F3"></div>
+      <div class="info"><b>면 Surface</b><code>#F6F5F3</code><span>카드와 구역 구분</span></div></div>
+    <div class="sw"><div class="chip" style="background:#6E6E6E"></div>
+      <div class="info"><b>회 Grey</b><code>#6E6E6E</code><span>보조 텍스트·캡션</span></div></div>
   </div>
 
   <h3>사용 비율</h3>
   <ul class="ticks">
-    <li><strong>한지 70 · 감청 22 · 청록 7 · 기타 1.</strong> 청록은 한 화면에 한두 곳에만 씁니다. 넓은 면을 청록으로 채우는 것은 간판과 지점 사인에서만 허용합니다.</li>
-    <li><strong>로고는 2색만 씁니다.</strong> 감청과 한지뿐이며 청록은 들어가지 않습니다. 청록은 로고 바깥, 즉 강조와 데이터에서 일합니다. 로고가 조용해야 나머지가 말을 할 수 있습니다.</li>
-    <li><strong>빨강은 쓰지 않습니다.</strong> 합격·수능·긴급을 연상시키는 빨강은 공포 마케팅의 색이며, 경쟁 브랜드가 이미 점유하고 있습니다. 오류 표시에만 최소한으로 씁니다.</li>
-    <li><strong>성적 그래프에도 규칙이 있습니다.</strong> 상승은 청록, 하락은 담묵입니다. 하락을 빨강으로 칠하지 않습니다. 떨어진 주를 비난하지 않는 것이 브랜드의 입장입니다.</li>
+    <li><strong>흰 바탕 76 · 먹 20 · 오렌지 4.</strong> 오렌지는 한 화면에 한두 곳입니다. 넓은 면을 오렌지로 채우는 것은 간판에서만 허용합니다.</li>
+    <li><strong>오렌지는 태양의 색입니다.</strong> 로고 밖에서 쓸 때도 '목표에 닿는 것'을 가리킬 때만 씁니다. 버튼, 승급, 상승 지표.</li>
+    <li><strong>빨강은 쓰지 않습니다.</strong> 오렌지와 혼동되고, 겁주는 색입니다. 오류 표시에만 최소한으로 씁니다.</li>
+    <li><strong>성적 그래프에도 규칙이 있습니다.</strong> 상승은 오렌지, 하락은 회색입니다. 하락을 빨강으로 칠하지 않습니다. 떨어진 주를 비난하지 않는 것이 브랜드의 입장입니다.</li>
   </ul>
 </section>
 
@@ -770,7 +722,7 @@ footer a{color:var(--grey)}
   <div class="type-row">
     <div class="k">브랜드 · 제목</div>
     <div class="v"><div style="font-family:var(--f-display);font-weight:700;font-size:clamp(24px,4vw,34px);line-height:1.4;letter-spacing:-.015em">단 하나의 관리</div>
-      <small>Noto Serif KR Bold 700 · 자간 −1.5% · 로고, 헤드라인, 슬로건</small></div>
+      <small>Noto Serif KR Bold 700 · 자간 −1.5% · 헤드라인과 슬로건. 로고타입은 전용 조판이라 여기에 포함되지 않습니다</small></div>
   </div>
   <div class="type-row">
     <div class="k">본문</div>
@@ -788,7 +740,7 @@ footer a{color:var(--grey)}
       <small>IBM Plex Mono 500/600 · 고정폭 숫자 필수 · 리포트, 지표, 가격</small></div>
   </div>
 
-  <p class="note" style="margin-top:22px">본문 고딕은 Pretendard로 대체할 수 있습니다. 단, <strong>제목 명조는 대체 불가</strong>입니다. 명조를 고딕으로 바꾸는 순간 경쟁사와 구분되지 않습니다. 숫자는 어디서든 고정폭(tabular)으로 세로 정렬합니다. 지표를 파는 브랜드이기 때문입니다.</p>
+  <p class="note" style="margin-top:22px">로고타입은 Noto Sans KR 900을 바탕으로 '공'의 받침 위에 태양을 올려 따로 짠 것이라, 서체만으로는 재현되지 않습니다. 본문 고딕은 Pretendard로 대체할 수 있습니다. 단, <strong>제목 명조는 대체 불가</strong>입니다. 명조를 고딕으로 바꾸는 순간 경쟁사와 구분되지 않습니다. 숫자는 어디서든 고정폭(tabular)으로 세로 정렬합니다. 지표를 파는 브랜드이기 때문입니다.</p>
 </section>
 
 <section id="voice">
@@ -837,7 +789,7 @@ footer a{color:var(--grey)}
     <div class="mock">
       <div class="bizcard">
         <div class="lock-h" style="--g:12px">
-          <svg width="26" height="26" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0F1626;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+          <svg width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" style="--mk-ink:#F6F5F3"><use href="#mk"/></svg>
           <span style="font-family:var(--f-display);font-weight:700;font-size:17px">독공자</span>
         </div>
         <div>
@@ -851,25 +803,25 @@ footer a{color:var(--grey)}
 
     <div class="mock">
       <div class="sign">
-        <svg width="40" height="40" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0E5A4E;--mk-line:#F2EEE6"><use href="#mk"/></svg>
-        <div style="color:#F2EEE6">
+        <svg width="40" height="40" viewBox="0 0 200 200" aria-hidden="true" style="--mk-ink:#F6F5F3"><use href="#mk"/></svg>
+        <div style="color:#FFFFFF">
           <div style="font-family:var(--f-display);font-weight:700;font-size:25px;line-height:1">독공자</div>
           <div style="font-family:var(--f-mono);font-size:9.5px;letter-spacing:.2em;margin-top:7px;opacity:.75">대치</div>
         </div>
       </div>
-      <div class="body"><h4>지점 사인</h4><p style="font-size:12.5px;color:var(--grey);margin:0">청록 전면에 한지색 1도. 간판에서만 청록을 넓은 면으로 씁니다. 지점명은 고정폭으로 작게.</p></div>
+      <div class="body"><h4>지점 사인</h4><p style="font-size:12.5px;color:var(--grey);margin:0">오렌지 전면에 흰 1도. 간판에서만 오렌지를 넓은 면으로 씁니다. 지점명은 고정폭으로 작게.</p></div>
     </div>
 
     <div class="mock">
       <div style="padding:22px;display:flex;align-items:center;justify-content:center;gap:16px;background:var(--surface)">
-        <div style="width:82px;height:82px;border-radius:18px;background:#0F1626;display:flex;align-items:center;justify-content:center">
-          <svg width="42" height="42" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0F1626;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+        <div style="width:82px;height:82px;border-radius:18px;background:#FFFFFF;border:1px solid var(--line);display:flex;align-items:center;justify-content:center">
+          <svg width="42" height="42" viewBox="0 0 200 200" aria-hidden="true" style="--mk-ink:#232323"><use href="#mk"/></svg>
         </div>
-        <div style="width:50px;height:50px;border-radius:11px;background:#0F1626;display:flex;align-items:center;justify-content:center">
-          <svg width="26" height="26" viewBox="0 0 2048 2048" aria-hidden="true" style="--mk-ground:#0F1626;--mk-line:#F2EEE6"><use href="#mk"/></svg>
+        <div style="width:50px;height:50px;border-radius:11px;background:#FFFFFF;border:1px solid var(--line);display:flex;align-items:center;justify-content:center">
+          <svg width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" style="--mk-ink:#232323"><use href="#mk"/></svg>
         </div>
       </div>
-      <div class="body"><h4>앱 아이콘</h4><p style="font-size:12.5px;color:var(--grey);margin:0">감청 바탕에 한지색 선. 원판이 배경에 녹아 투구만 남습니다. 축소해도 선 굵기는 그대로 둡니다.</p></div>
+      <div class="body"><h4>앱 아이콘</h4><p style="font-size:12.5px;color:var(--grey);margin:0">흰 바탕에 심벌만. 태양은 오렌지 그대로 둡니다. 축소해도 가로선 굵기는 유지합니다.</p></div>
     </div>
 
     <div class="mock">
@@ -880,7 +832,7 @@ footer a{color:var(--grey)}
         <div>계획 이행률 <b>91%</b><span class="bar" style="width:58px"></span></div>
         <div>복구 속도 <b>1.2일</b><span class="bar" style="width:22px"></span></div>
         <div>자기교정 <b>7회</b><span class="bar" style="width:30px"></span></div>
-        <div style="margin-top:9px;color:var(--jade)">3단 승급까지 2주</div>
+        <div style="margin-top:9px;color:var(--sun)">3단 승급까지 2주</div>
       </div>
       <div class="body"><h4>주간 리포트</h4><p style="font-size:12.5px;color:var(--grey);margin:0">등수를 쓰지 않습니다. 지난주 대비 변화와 승급까지 남은 기간만 보여줍니다.</p></div>
     </div>
